@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIconDark = document.getElementById('theme-icon-dark');
     const permissionModal = document.getElementById('permission-modal');
     const permissionBtn = document.getElementById('permission-btn');
+    const audioToggle = document.getElementById('audio-toggle');
     
     const surfaceModeBtn = document.getElementById('surface-mode-btn');
     const wallModeBtn = document.getElementById('wall-mode-btn');
@@ -37,8 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastPitch = 0;
     let lastRoll = 0;
     let isMeasuring = false;
-
     let isSurfaceMode = true;
+
+    // Audio variables
+    let isAudioOn = true;
+    let audioContext;
+    let oscillator; // For continuous beep
+    let lastBeepTime = 0;
 
     // --- Theme Management ---
     const applyTheme = (theme) => {
@@ -81,6 +87,77 @@ document.addEventListener('DOMContentLoaded', () => {
         wallModeBtn.classList.add('bg-white', 'dark:bg-gray-500');
     });
 
+    // --- Audio Handling ---
+    const playShortBeep = () => {
+        if (!audioContext || !isAudioOn) return;
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(440, audioContext.currentTime); // A4 pitch
+        osc.connect(gain);
+        gain.connect(audioContext.destination);
+    
+        gain.gain.setValueAtTime(1, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.00001, audioContext.currentTime + 0.1);
+    
+        osc.start(audioContext.currentTime);
+        osc.stop(audioContext.currentTime + 0.1);
+    };
+
+    const startContinuousBeep = () => {
+        if (!audioContext || !isAudioOn || oscillator) return;
+        oscillator = audioContext.createOscillator();
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(880, audioContext.currentTime); // A5 pitch for level
+        oscillator.connect(audioContext.destination);
+        oscillator.start();
+    };
+
+    const stopContinuousBeep = () => {
+        if (oscillator) {
+            oscillator.stop();
+            oscillator.disconnect();
+            oscillator = null;
+        }
+    };
+
+    const updateAudio = (pitch, roll) => {
+        if (!isAudioOn || !isMeasuring || !audioContext) {
+            stopContinuousBeep();
+            return;
+        }
+
+        let totalAngle;
+        if (isSurfaceMode) {
+            const currentPitch = pitch - pitchOffset;
+            const currentRoll = roll - rollOffset;
+            totalAngle = Math.hypot(currentPitch, currentRoll);
+        } else {
+            const isPortrait = window.innerHeight > window.innerWidth;
+            const angle = isPortrait ? (roll - rollOffset) : (pitch - pitchOffset);
+            totalAngle = Math.abs(angle);
+        }
+
+        if (totalAngle < 0.5) { // Threshold for being level
+            startContinuousBeep();
+        } else {
+            stopContinuousBeep();
+
+            // Dynamic interval beeping
+            const maxAngle = 45; // Cap for interval calculation
+            const minInterval = 0.1; // 100ms
+            const maxInterval = 1.0; // 1s
+            const angleRatio = Math.min(totalAngle, maxAngle) / maxAngle;
+            const interval = minInterval + angleRatio * (maxInterval - minInterval);
+
+            const currentTime = audioContext.currentTime;
+            if (currentTime > lastBeepTime + interval) {
+                playShortBeep();
+                lastBeepTime = currentTime;
+            }
+        }
+    };
+
     // --- Sensor Logic ---
     const handleOrientation = (event) => {
         if (!isMeasuring) return;
@@ -101,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             updateWallMode(beta, gamma);
         }
+        updateAudio(beta, gamma);
     };
 
     const updateSurfaceMode = (pitch, roll) => {
@@ -165,6 +243,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Permission Handling & Measurement Control ---
     const startMeasuring = () => {
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
         isMeasuring = true;
         startBtn.classList.add('hidden');
         stopBtn.classList.remove('hidden');
@@ -176,9 +260,10 @@ document.addEventListener('DOMContentLoaded', () => {
         startBtn.classList.remove('hidden');
         stopBtn.classList.add('hidden');
         window.removeEventListener('deviceorientation', handleOrientation);
-        // Reset offsets when stopping
+        // Reset offsets and audio when stopping
         pitchOffset = 0;
         rollOffset = 0;
+        stopContinuousBeep();
     };
 
     const requestSensorAccess = () => {
@@ -202,6 +287,26 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Event Listeners ---
+    audioToggle.addEventListener('click', () => {
+        isAudioOn = !isAudioOn;
+        audioToggle.classList.toggle('active', isAudioOn);
+    
+        if (isAudioOn) {
+            if (audioContext && audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            if(audioContext) {
+                lastBeepTime = audioContext.currentTime;
+            }
+            document.getElementById('audio-on').classList.remove('hidden');
+            document.getElementById('audio-off').classList.add('hidden');
+        } else {
+            stopContinuousBeep();
+            document.getElementById('audio-on').classList.add('hidden');
+            document.getElementById('audio-off').classList.remove('hidden');
+        }
+    });
+
     permissionBtn.addEventListener('click', requestSensorAccess);
 
     startBtn.addEventListener('click', () => {
