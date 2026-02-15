@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@layer components {
+    .page-body {
+        @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .app-container { @apply h-[100dvh] w-full flex flex-col; }
+    .app-header { @apply h-[10%] flex justify-between items-center p-4 bg-gray-200 dark:bg-gray-800; }
+    .logo-text { @apply text-xl font-bold; }
+    .header-controls { @apply flex items-center space-x-4; }
+    .control-button { @apply p-2 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full; }
+    .app-content { @apply h-[80%] flex flex-col overflow-y-auto; }
+    .main-view { @apply flex-shrink-0 h-full w-full flex flex-col items-center p-4; }
+    
+    .mode-slider { @apply mb-4 justify-self-start flex space-x-2 bg-gray-200 dark:bg-gray-700 p-1 rounded-full; }
+    .mode-button { @apply px-4 py-1 rounded-full; }
+    .mode-button.active { @apply bg-white dark:bg-gray-500; }
+
+    .actual-content{@apply w-full flex flex-col flex-1  space-y-6 justify-center items-center }
+
+    .surface-mode-view { @apply w-full flex flex-col items-center justify-center; }
+    .surface-mode-layout { @apply flex items-center justify-center space-x-2; }
+    .wall-mode-view { @apply w-full h-full flex-col items-center justify-center; }
+    .wall-degree { @apply mt-4 text-4xl font-mono; }
+    .info-content { @apply p-8 space-y-8; }
+    .section-title { @apply text-2xl font-bold mb-4; }
+    .content-list { @apply list-disc list-inside; }
+    .faq-list { @apply space-y-4; }
+    .faq-question { @apply font-semibold; }
+    .app-footer { @apply text-center text-sm text-gray-500 py-4; }
+    .ad-container { @apply h-[10%] bg-gray-200 dark:bg-gray-800 flex items-center justify-center; }
+    .ad-placeholder-text { @apply text-gray-500; }
+    .permission-modal { @apply absolute inset-0 bg-gray-900 flex items-center justify-center; }
+    .permission-modal-content { @apply bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl text-center; }
+    .permission-title { @apply text-2xl font-bold mb-4; }
+    .permission-text { @apply mb-6; }
+    .permission-button { @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg; }
+@layer components {
+  /* Main Circular Dial */
+  .circular-dial {
+    @apply relative w-[250px] h-[250px] rounded-full border-4
+    bg-gray-200 border-gray-400
+    
+     flex items-center justify-center;
+  }
+  .dark .circular-dial{
+    @apply border-gray-600 bg-gray-500
+  }
+
+  /* Crosshairs (Horizontal & Vertical) */
+  .crosshair-h, 
+  .crosshair-v {
+    @apply absolute bg-gray-500 dark:bg-gray-600;
+  }
+  .crosshair-h { @apply w-full h-[1px]; }
+  .crosshair-v { @apply h-full w-[1px]; }
+
+  /* Center Target Ring */
+  #center-ring {
+    @apply w-10 h-10 rounded-full border border-gray-500 dark:border-gray-600;
+  }
+
+  /* Shared Bubble Styles */
+  #bubble-main, 
+  .bubble-rect {
+    @apply absolute rounded-full border transition-transform duration-100 ease-linear
+     bg-gray-600/70 border-gray-300
+    dark:bg-gray-400/70 dark:border-gray-600;
+  }
+
+  /* Specific Bubble Sizes */
+  #bubble-main { @apply w-9 h-9; }
+  .bubble-rect { @apply w-8 h-8; }
+  .wall-level-box .bubble-rect { @apply w-12 h-12; }
+
+  /* Level Containers */
+  .level-box-x {
+    @apply relative flex items-center w-[250px] h-10 px-1 mt-2 rounded-lg;
+    @apply bg-gray-200 dark:bg-gray-700;
+  }
+
+  .level-box-y {
+    @apply relative flex justify-center w-10 h-[250px] py-1 rounded-lg;
+    @apply bg-gray-200 dark:bg-gray-700;
+  }
+
+  .wall-level-box {
+    @apply relative flex items-center w-[90%] max-w-[400px] h-[60px] px-[6px] rounded-lg;
+    @apply bg-gray-200 dark:bg-gray-700;
+  }
+
+  /* Degree Display with Diagonal Line */
+  .degree-display-wrapper {
+    @apply relative flex flex-col justify-between items-center w-20 h-20 font-mono text-lg;
+    background: linear-gradient(to top right, transparent 49.5%, theme('colors.gray.400') 49.5%, theme('colors.gray.400') 50.5%, transparent 50.5%);
+  }
+
+  .dark .degree-display-wrapper {
+    background: linear-gradient(to top right, transparent 49.5%, theme('colors.gray.600') 49.5%, theme('colors.gray.600') 50.5%, transparent 50.5%);
+  }
+}
+    #degree-y { @apply self-end pr-1 pt-1; }
+    #degree-x { @apply self-start pl-1 pb-1; }
+}
+
+.surface-dials{
+    @apply
+        grid grid-cols-[750fr_25fr] 
+        gap-y-4 place-items-center  w-full;
+}
+.button-container{
+    @apply flex justify-center items-center gap-3 w-full px-4;
+}
+#zero-btn{
+    @apply w-1/2 p-3 border bg-amber-300 text-black rounded-full
+}
+.measure-btn{
+    @apply w-1/2 p-3 border bg-blue-300 text-black rounded-full
+}

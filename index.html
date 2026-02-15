@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spirit Level Online - Bubble Level for Any Surface</title>
+    <meta name="description" content="A free online spirit level (or bubble level) to check if a surface is perfectly level. Works on any device with a web browser and motion sensors.">
+    <meta name="keywords" content="spirit level online, online spirit level, online bubble level, bubble level online, level surface online, surface level online, how to find if my surface is straight, how to find if my photo is straight, how to find if my tv is straight">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-body">
+    <div id="app-container" class="app-container">
+        
+        <!-- Header: 10% -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-text">SpiritLevel</span>
+            </div>
+            <div class="controls header-controls">
+                <button id="language-btn" class="control-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m4 10h.01M12 21a9 9 0 110-18 9 9 0 010 18zM21 21L15 15"/></svg>
+                </button>
+                <button id="theme-switch" class="control-button">
+                    <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 icon-dark hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                </button>
+                <button id="audio-toggle" class="control-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m-3.536-8.464a5 5 0 000 7.072" /></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content: 80% -->
+        <main id="content-area" class="app-content">
+            <div id="main-content" class="main-view">
+                
+                <!-- Mode Slider -->
+                <div class="mode-slider">
+                    <button id="surface-mode-btn" class="mode-button active">Surface</button>
+                    <button id="wall-mode-btn" class="mode-button">Wall</button>
+                </div> 
+                <div class="actual-content">
+                    <!-- Surface Mode Content -->
+                    <div id="surface-mode-content" class="surface-mode-view">
+                        <div class="surface-dials">
+                            <div id="circular-dial" class="circular-dial">
+                                <div class="crosshair-h"></div>
+                                <div class="crosshair-v"></div>
+                                <div id="center-ring"></div>
+                                <div id="bubble-main"></div>
+                            </div>
+                            <div id="vertical-level" class="level-box-y items-center justify-self-end">
+                                <div class="absolute inset-0 flex flex-col justify-center items-center gap-8 pointer-events-none">
+                                    <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
+                                    <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
+                                </div>
+                                <div id="v-bubble" class="bubble-rect"></div>
+                            </div>
+
+                            <div id="horizontal-level" class="level-box-x flex justify-center self-end">
+                                <div class="absolute inset-0 flex justify-center items-center gap-8 pointer-events-none">
+                                    <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
+                                    <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
+                                </div>
+                                <div id="h-bubble" class="bubble-rect"></div>
+
+                            </div>
+    
+                            <div id="degree-display" class="degree-display-wrapper">
+                                <div id="degree-y" class="degree-text">0.0°</div>
+                                <div id="degree-x" class="degree-text">0.0°</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wall Mode Content -->
+                    <div id="wall-mode-content" class="wall-mode-view hidden">
+                        <div id="wall-level" class="wall-level-box">
+                            <div id="wall-bubble" class="bubble-rect"></div>
+                        </div>
+                        <div id="wall-degree" class="wall-degree">0.0°</div>
+                    </div>
+
+                    <div class = "button-container">
+                        <button id = "zero-btn"> Zero</button>
+                        <button id = "start-measurement-btn" class = "measure-btn">Start measurement</button>
+                        <button id = "stop-measurement-btn" class = "measure-btn hidden"> Stop Measurement</button>
+
+                    </div>
+
+                </div>
+
+                <div class = "hidden md:flex">
+
+                </div>
+
+            </div>
+
+            <div id="info-content" class="info-content">
+                <section>
+                    <h2 class="section-title">What is a Spirit Level?</h2>
+                    <p>A spirit level, bubble level, or simply a level, is an instrument designed to indicate whether a surface is horizontal (level) or vertical (plumb). This online spirit level uses your device's motion sensors to replicate the functionality of a traditional level, providing a quick and easy way to check angles for your projects.</p>
+                </section>
+                <section>
+                    <h2 class="section-title">Uses</h2>
+                    <p class="mb-2">This tool is perfect for various household and professional tasks:</p>
+                    <ul class="content-list">
+                        <li>Hanging pictures and ensuring they are straight.</li>
+                        <li>Installing shelves without a tilt.</li>
+                        <li>Setting up a tripod for level photography.</li>
+                        <li>Leveling a camper van or RV.</li>
+                        <li>Checking the alignment of a TV mount.</li>
+                        <li>DIY projects that require precise alignment.</li>
+                    </ul>
+                </section>
+                <section id="faq">
+                    <h2 class="section-title">FAQ</h2>
+                     <div class="faq-list">
+                        <div>
+                            <h3 class="faq-question">What is an online spirit level?</h3>
+                            <p>An online spirit level is a digital tool that uses your device's built-in sensors (like the accelerometer and gyroscope) to determine if a surface is level (horizontal) or plumb (vertical). It mimics the functionality of a traditional bubble level right in your web browser.</p>
+                        </div>
+                        <div>
+                            <h3 class="faq-question">How do I use this tool?</h3>
+                            <p>For flat surfaces, select 'Surface Mode' and lay your phone flat. The bubble will indicate the angle of tilt. For vertical edges, like hanging a picture, select 'Wall Mode' and hold the side of your phone against the object.</p>
+                        </div>
+                         <div>
+                            <h3 class="faq-question">Is this tool accurate?</h3>
+                            <p>The accuracy depends on the quality of the sensors in your device. For most modern smartphones, it is accurate enough for common household tasks like hanging frames, installing shelves, or leveling a table.</p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="section-title">Disclaimer</h2>
+                    <p>This tool is for informational purposes only and should not be used for critical engineering or construction applications where high precision is required. The accuracy is dependent on your device's sensor calibration.</p>
+                </section>
+                <section>
+                    <h2 class="section-title">Privacy</h2>
+                    <p>We respect your privacy. This website does not collect any personal data. We use a privacy-focused analytics service, GoatCounter, to count website visits anonymously.</p>
+                </section>
+                <footer class="app-footer">
+                    <p>2026@all right reserved | contact@pvfreund.com</p>
+                </footer>
+            </div>
+        </main>
+
+        <!-- Ad Container: 10% -->
+        <aside class="ad-container">
+            <p class="ad-placeholder-text">Ad Container</p>
+        </aside>
+
+        <!-- Permission Modal -->
+        <div id="permission-modal" class="permission-modal hidden">
+            <div class="permission-modal-content">
+                <h2 class="permission-title">Sensor Access Required</h2>
+                <p class="permission-text">This application needs access to your device's motion sensors to function.</p>
+                <button id="permission-btn" class="permission-button">
+                    Grant Permission
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
