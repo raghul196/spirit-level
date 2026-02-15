@@ -236,6 +236,9 @@
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
   .h-\[1px\] {
     height: 1px;
   }
@@ -318,6 +321,16 @@
     padding: calc(var(--spacing) * 4);
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-gray-800);
+    }
+  }
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
     }
   }
   .logo-text {
@@ -424,7 +437,7 @@
     }
   }
   .wall-mode-view {
-    height: 100%;
+    display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -641,13 +654,14 @@
     }
     .wall-level-box {
       position: relative;
-      display: flex;
       height: 60px;
       width: 90%;
       max-width: 400px;
       align-items: center;
       border-radius: var(--radius-lg);
       padding-inline: 6px;
+      display: flex;
+      justify-content: center;
       background-color: var(--color-gray-200);
       @media (prefers-color-scheme: dark) {
         background-color: var(--color-gray-700);
@@ -765,14 +779,14 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -865,8 +879,8 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
-      --tw-font-weight: initial;
       --tw-space-x-reverse: 0;
+      --tw-font-weight: initial;
       --tw-space-y-reverse: 0;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;

@@ -8,6 +8,9 @@
     }
     .app-container { @apply h-[100dvh] w-full flex flex-col; }
     .app-header { @apply h-[10%] flex justify-between items-center p-4 bg-gray-200 dark:bg-gray-800; }
+    .logo {
+      @apply flex flex-row space-x-4 items-center;
+    }
     .logo-text { @apply text-xl font-bold; }
     .header-controls { @apply flex items-center space-x-4; }
     .control-button { @apply p-2 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full; }
@@ -22,7 +25,7 @@
 
     .surface-mode-view { @apply w-full flex flex-col items-center justify-center; }
     .surface-mode-layout { @apply flex items-center justify-center space-x-2; }
-    .wall-mode-view { @apply w-full h-full flex-col items-center justify-center; }
+    .wall-mode-view { @apply w-full  flex flex-col items-center justify-center; }
     .wall-degree { @apply mt-4 text-4xl font-mono; }
     .info-content { @apply p-8 space-y-8; }
     .section-title { @apply text-2xl font-bold mb-4; }
@@ -88,7 +91,7 @@
 
   .wall-level-box {
     @apply relative flex items-center w-[90%] max-w-[400px] h-[60px] px-[6px] rounded-lg;
-    @apply bg-gray-200 dark:bg-gray-700;
+    @apply bg-gray-200 dark:bg-gray-700 flex justify-center;
   }
 
   /* Degree Display with Diagonal Line */
