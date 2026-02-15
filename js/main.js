@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastPitch = 0;
     let lastRoll = 0;
     let isMeasuring = false;
-    let zeroOnStart = false;
 
     let isSurfaceMode = true;
 
@@ -84,7 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Sensor Logic ---
     const handleOrientation = (event) => {
+        if (!isMeasuring) return;
+
         const { beta, gamma } = event; // beta: pitch (y-axis), gamma: roll (x-axis)
+        lastPitch = beta;
+        lastRoll = gamma;
+
+        // Auto-switch mode based on angle
+        if (isSurfaceMode && (Math.abs(beta) > 45 || Math.abs(gamma) > 75)) {
+            wallModeBtn.click();
+        } else if (!isSurfaceMode && (Math.abs(beta) < 45 && Math.abs(gamma) < 45)) {
+            surfaceModeBtn.click();
+        }
         
         if (isSurfaceMode) {
             updateSurfaceMode(beta, gamma);
@@ -94,9 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateSurfaceMode = (pitch, roll) => {
+        const currentPitch = pitch - pitchOffset;
+        const currentRoll = roll - rollOffset;
+
         // Clamp angles to prevent extreme values
-        const clampedPitch = Math.max(-90, Math.min(90, pitch));
-        const clampedRoll = Math.max(-90, Math.min(90, roll));
+        const clampedPitch = Math.max(-90, Math.min(90, currentPitch));
+        const clampedRoll = Math.max(-90, Math.min(90, currentRoll));
 
         // Update degree text
         degreeX.textContent = `${clampedRoll.toFixed(1)}°`;
@@ -107,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const bubbleRadius = bubbleMain.offsetWidth / 2;
         const maxBubbleTravel = dialRadius - bubbleRadius;
 
-        const bubbleX = (clampedRoll / 90) * maxBubbleTravel;
-        const bubbleY = (clampedPitch / 90) * maxBubbleTravel;
+        const bubbleX = (clampedRoll / 45) * maxBubbleTravel;
+        const bubbleY = (clampedPitch / 45) * maxBubbleTravel;
         
         bubbleMain.style.transform = `translate(${bubbleX}px, ${bubbleY}px)`;
 
@@ -116,13 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const hLevelWidth = hLevel.offsetWidth;
         const hBubbleWidth = hBubble.offsetWidth;
         const maxHBubbleTravel = (hLevelWidth - hBubbleWidth) / 2;
-        const hBubbleX = (clampedRoll / 90) * maxHBubbleTravel;
+        const hBubbleX = (clampedRoll / 45) * maxHBubbleTravel;
         hBubble.style.transform = `translateX(${hBubbleX}px)`;
 
         const vLevelHeight = vLevel.offsetHeight;
         const vBubbleHeight = vBubble.offsetHeight;
         const maxVBubbleTravel = (vLevelHeight - vBubbleHeight) / 2;
-        const vBubbleY = (clampedPitch / 90) * maxVBubbleTravel;
+        const vBubbleY = (clampedPitch / 45) * maxVBubbleTravel;
         vBubble.style.transform = `translateY(${vBubbleY}px)`;
     };
 
@@ -132,10 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isPortrait) {
             // In portrait, roll is the primary leveling axis
-            angle = roll;
+            angle = roll - rollOffset;
         } else {
             // In landscape, pitch becomes the primary leveling axis
-            angle = pitch;
+            angle = pitch - pitchOffset;
         }
         
         const clampedAngle = Math.max(-90, Math.min(90, angle));
@@ -150,15 +163,32 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // --- Permission Handling ---
+    // --- Permission Handling & Measurement Control ---
+    const startMeasuring = () => {
+        isMeasuring = true;
+        startBtn.classList.add('hidden');
+        stopBtn.classList.remove('hidden');
+        window.addEventListener('deviceorientation', handleOrientation);
+    };
+
+    const stopMeasuring = () => {
+        isMeasuring = false;
+        startBtn.classList.remove('hidden');
+        stopBtn.classList.add('hidden');
+        window.removeEventListener('deviceorientation', handleOrientation);
+        // Reset offsets when stopping
+        pitchOffset = 0;
+        rollOffset = 0;
+    };
+
     const requestSensorAccess = () => {
         if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
             // iOS 13+
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
-                        window.addEventListener('deviceorientation', handleOrientation);
                         permissionModal.classList.add('hidden');
+                        startMeasuring();
                     } else {
                         alert('Permission denied. The spirit level cannot function without sensor access.');
                     }
@@ -166,34 +196,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 .catch(console.error);
         } else {
             // Non-iOS 13+ browsers
-            window.addEventListener('deviceorientation', handleOrientation);
             permissionModal.classList.add('hidden');
+            startMeasuring();
         }
     };
 
-    // --- Initialization ---
-    startBtn.addEventListener('click', async () => {
-    // Check if we are on a non-iOS device that doesn't require a permission prompt
-        if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission !== 'function') {
-            window.addEventListener('deviceorientation', handleOrientation);
-            startBtn.classList.add('hidden');
-            stopBtn.classList.remove('hidden');
-            isMeasuring = true;
+    // --- Event Listeners ---
+    permissionBtn.addEventListener('click', requestSensorAccess);
 
+    startBtn.addEventListener('click', () => {
+        // For non-iOS, or if permission already granted, start.
+        if (typeof DeviceOrientationEvent === 'undefined' || typeof DeviceOrientationEvent.requestPermission !== 'function') {
+             startMeasuring();
         } else {
-            // On iOS or other devices that may require it, show the prompt
+             // For iOS, show permission modal.
             permissionModal.classList.remove('hidden');
         }
-
-        permissionBtn.addEventListener('click', requestSensorAccess);
     });
 
-    stopBtn.addEventListener('click', ()=>{
-        window.removeEventListener('deviceorientation', handleOrientation);
-        startBtn.classList.remove('hidden');
-        stopBtn.classList.add('hidden');
-        isMeasuring = false;
-        zeroOnStart = false;
-    });
+    stopBtn.addEventListener('click', stopMeasuring);
 
+    zeroBtn.addEventListener('click', () => {
+        if (isMeasuring) {
+            pitchOffset = lastPitch;
+            rollOffset = lastRoll;
+        }
+    });
 });
