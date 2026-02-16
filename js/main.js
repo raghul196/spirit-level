@@ -167,11 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
         lastRoll = gamma;
 
         // Auto-switch mode based on angle
-        if (isSurfaceMode && (Math.abs(beta) > 45 || Math.abs(gamma) > 75)) {
-            wallModeBtn.click();
-        } else if (!isSurfaceMode && (Math.abs(beta) < 45 && Math.abs(gamma) < 45)) {
-            surfaceModeBtn.click();
-        }
+        // if (isSurfaceMode && (Math.abs(beta) > 45 || Math.abs(gamma) > 45)) {
+        //     wallModeBtn.click();
+        // } else if (!isSurfaceMode && (Math.abs(beta) < 45 && Math.abs(gamma) < 45)) {
+        //     surfaceModeBtn.click();
+        // }
         
         if (isSurfaceMode) {
             updateSurfaceMode(beta, gamma);
@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentRoll = roll - rollOffset;
 
         // Clamp angles to prevent extreme values
-        const clampedPitch = Math.max(-90, Math.min(90, currentPitch));
-        const clampedRoll = Math.max(-90, Math.min(90, currentRoll));
+        const clampedPitch = Math.max(-45, Math.min(45, currentPitch));
+        const clampedRoll = Math.max(-45, Math.min(45, currentRoll));
 
         // Update degree text
         degreeX.textContent = `${clampedRoll.toFixed(1)}°`;

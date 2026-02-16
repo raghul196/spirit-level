@@ -14,7 +14,7 @@
     .logo-text { @apply text-xl font-bold; }
     .header-controls { @apply flex items-center space-x-4; }
     .control-button { @apply p-2 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full; }
-    .app-content { @apply h-[80%] flex flex-col overflow-y-auto; }
+    .app-content { @apply h-[80%] flex flex-col mx-auto max-w-2xl overflow-y-auto; }
     .main-view { @apply flex-shrink-0 h-full w-full flex flex-col items-center p-4; }
     
     .mode-slider { @apply mb-4 justify-self-start flex space-x-2 bg-gray-200 dark:bg-gray-700 p-1 rounded-full; }
