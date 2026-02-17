@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" href="./logo_144.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spirit Level Online - Bubble Level for Any Surface</title>
-    <meta name="description" content="A free online spirit level (or bubble level) to check if a surface is perfectly level. Works on any device with a web browser and motion sensors.">
+    <meta name="description" content="A free online spirit level and bubble level to check for a level surface. Works on any device with a web browser and motion sensors.">
     <meta name="keywords" content="spirit level online, online spirit level, online bubble level, bubble level online, level surface online, surface level online, how to find if my surface is straight, how to find if my photo is straight, how to find if my tv is straight">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -51,163 +51,129 @@
 
         <!-- Content: 80% -->
         <main id="content-area" class="app-content">
-            <div id="main-content" class="main-view">
+          <div id="main-content" class="main-view">
                 
-                <!-- Mode Slider -->
-                <div class="mode-slider">
-                    <button id="surface-mode-btn" class="mode-button active">Surface</button>
-                    <button id="wall-mode-btn" class="mode-button">Wall</button>
-                </div> 
-                <div class="actual-content">
-                    <!-- Surface Mode Content -->
-                    <div id="surface-mode-content" class="surface-mode-view">
-                        <div class="surface-dials">
-                            <div id="circular-dial" class="circular-dial">
-                                <div class="crosshair-h"></div>
-                                <div class="crosshair-v"></div>
-                                <div id="center-ring"></div>
-                                <div id="bubble-main"></div>
+            <!-- Mode Slider -->
+            <div class="mode-slider">
+                <button id="surface-mode-btn" class="mode-button active">Surface</button>
+                <button id="wall-mode-btn" class="mode-button">Wall</button>
+            </div> 
+            <div class="actual-content">
+                <!-- Surface Mode Content -->
+                <div id="surface-mode-content" class="surface-mode-view">
+                    <div class="surface-dials">
+                        <div id="circular-dial" class="circular-dial">
+                            <div class="crosshair-h"></div>
+                            <div class="crosshair-v"></div>
+                            <div id="center-ring"></div>
+                            <div id="bubble-main"></div>
+                        </div>
+                        <div id="vertical-level" class="level-box-y items-center justify-self-end">
+                            <div class="absolute inset-0 flex flex-col justify-center items-center gap-8 pointer-events-none">
+                                <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
+                                <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
                             </div>
-                            <div id="vertical-level" class="level-box-y items-center justify-self-end">
-                                <div class="absolute inset-0 flex flex-col justify-center items-center gap-8 pointer-events-none">
-                                    <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
-                                    <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
-                                </div>
-                                <div id="v-bubble" class="bubble-rect"></div>
-                            </div>
+                            <div id="v-bubble" class="bubble-rect"></div>
+                        </div>
 
-                            <div id="horizontal-level" class="level-box-x flex justify-center self-end">
-                                <div class="absolute inset-0 flex justify-center items-center gap-8 pointer-events-none">
-                                    <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
-                                    <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
-                                </div>
-                                <div id="h-bubble" class="bubble-rect"></div>
+                        <div id="horizontal-level" class="level-box-x flex justify-center self-end">
+                          <div class="absolute inset-0 flex justify-center items-center gap-8 pointer-events-none">
+                            <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
+                            <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
+                          </div>
+                          <div id="h-bubble" class="bubble-rect"></div>
 
-                            </div>
-    
-                            <div id="degree-display" class="degree-display-wrapper">
-                                <div id="degree-y" class="degree-text">0.0°</div>
-                                <div id="degree-x" class="degree-text">0.0°</div>
-                            </div>
+                        </div>
+
+                        <div id="degree-display" class="degree-display-wrapper">
+                          <div id="degree-y" class="degree-text">0.0°</div>
+                          <div id="degree-x" class="degree-text">0.0°</div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Wall Mode Content -->
-                    <div id="wall-mode-content" class="wall-mode-view hidden">
-                        <div id="wall-level" class="wall-level-box">
-                            <div id="wall-bubble" class="bubble-rect"></div>
-                        </div>
-                        <div id="wall-degree" class="wall-degree">0.0°</div>
-                    </div>
+                <!-- Wall Mode Content -->
+                <div id="wall-mode-content" class="wall-mode-view hidden">
+                  <div id="wall-level" class="wall-level-box">
+                      <div id="wall-bubble" class="bubble-rect"></div>
+                  </div>
+                  <div id="wall-degree" class="wall-degree">0.0°</div>
+                </div>
 
-                    <div class = "button-container">
-                        <button id = "zero-btn"> Zero</button>
-                        <button id = "start-measurement-btn" class = "measure-btn">Start measurement</button>
-                        <button id = "stop-measurement-btn" class = "measure-btn hidden"> Stop Measurement</button>
-
-                    </div>
+                <div class = "button-container">
+                  <button id = "zero-btn"> Zero</button>
+                  <button id = "start-measurement-btn" class = "measure-btn">Start measurement</button>
+                  <button id = "stop-measurement-btn" class = "measure-btn hidden"> Stop Measurement</button>
 
                 </div>
 
-                <div class = "hidden md:flex">
+              </div>
 
-                </div>
+              <div class = "hidden md:flex">
 
-            </div>
+              </div>
+
+          </div>
 
             <div id="info-content" class="info-content">
               <div class="what-is-spirit-level-section">
-                <h2 class="section-title">What is a Spirit Level (Bubble Level)?</h2>
+                <h2 class="section-title">What is a Spirit Level?</h2>
                 <p class="section-intro">
-                  A spirit level, also commonly known as a bubble level, is a tool designed to indicate whether a surface is horizontal (level) or vertical (plumb). It is an essential instrument for various tasks in construction, carpentry, photography, and home improvement, ensuring accuracy and precision.
+                  A spirit level (or bubble level) is a tool used to check if a surface is perfectly horizontal (level) or vertical (plumb). It's an essential tool for construction, carpentry, and home improvement.
                 </p>
                 <p class="paragraph-margin">
-                  The fundamental principle behind a spirit level lies in a slightly curved, sealed glass tube (vial) partially filled with a liquid (usually colored alcohol or mineral spirits) and a bubble of air. When the tool is placed on a surface, gravity pulls the liquid downwards. If the surface is perfectly level or plumb, the air bubble will settle precisely between two indicator marks on the vial. If the surface is tilted, the bubble will move away from the center, indicating the direction and degree of the slope. This simple yet effective mechanism allows for accurate visual assessment of alignment.
+                  A traditional spirit level has a small glass vial with a bubble inside. If the bubble is centered between the lines, the surface is level. This online spirit level uses your phone's sensors to do the same thing, but with digital precision.
                 </p>
               </div>
 
               <div class="how-it-works-section">
-                <h2 class="section-title">How to Use This Online Spirit Level</h2>
+                <h2 class="section-title">How to Use This Online Bubble Level</h2>
                 <p class="section-intro">
-                  This online spirit level is a web-based application designed to check if a surface is perfectly level (horizontal) or plumb (vertical), using the sensors already built into your smartphone or tablet. 
-                  It transforms your device into a powerful digital bubble level for free, without requiring any software installation. Everything runs directly in your web browser, 
-                  making it easy to check alignment anywhere.
+                  This online bubble level turns your phone into a precision spirit level. It uses your device's built-in sensors to check if a surface is level. No app installation is needed—it runs right in your browser.
                 </p>
                 
                 <div class="section-grid">
                   <div>
-                    <h3 class="subsection-title">Core Functionality</h3>
+                    <h3 class="subsection-title">Key Features</h3>
                     <ul class="feature-list">
-                      <li><strong>Real-time Angle Measurement:</strong> Once you grant sensor access and press <i>Start</i>, the application reads data from your device's accelerometer and gyroscope to show the surface angle in real-time.</li>
-                      <li><strong>Surface and Wall Modes:</strong> Switch between 'Surface Mode' for checking horizontal surfaces (like tables) and 'Wall Mode' for vertical ones (like picture frames).</li>
-                      <li><strong>High-Precision Bubble Level:</strong> The interface features a virtual bubble that moves based on the device's tilt, providing an intuitive visual guide to achieving a perfect level.</li>
-                      <li><strong>Zero Calibration:</strong> The <i> Zero</i> button allows you to set any surface as a reference point (0 degrees). This is useful for measuring the angle of one surface relative to another. It can also be used to adjust for bumps on your mobile device like protruding cameras.</li>
-                      <li><strong>Audio Feedback:</strong> Activate audio feedback, and your device will beep when a perfect level is achieved, allowing you to level surfaces without constantly monitoring the screen.</li>
+                      <li><strong>Instant Measurements:</strong> Get real-time angle readings as soon as you place your phone on a surface.</li>
+                      <li><strong>Two Modes:</strong> Use 'Surface Mode' for flat surfaces and 'Wall Mode' for vertical ones.</li>
+                      <li><strong>Simple Interface:</strong> The virtual bubble provides a clear visual guide, just like a real spirit level.</li>
+                      <li><strong>Zero Button:</strong> Calibrate the level to any surface or to account for a camera bump.</li>
+                      <li><strong>Audio Alerts:</strong> Get an audible beep when a surface is perfectly level.</li>
                     </ul>
                   </div>
                   <div>
-                    <h3 class="subsection-title">Disclaimer: Understanding Accuracy</h3>
+                    <h3 class="subsection-title">A Note on Accuracy</h3>
                     <p class="paragraph-margin">
-                      Please be aware that while this tool offers a convenient way to check levels, the sensors in a typical smartphone are not designed for metrology-grade measurement. 
-                      Factors like sensor quality, device calibration, and even small bumps on your phone's case can introduce errors. For many DIY and hobbyist tasks, the accuracy is more than sufficient. 
-                      However, for professional applications requiring certified precision, a dedicated, calibrated spirit level is recommended.
+                      While this online level is great for most DIY tasks, it's not a replacement for a professional, calibrated spirit level. The accuracy depends on your phone's sensors, and small bumps can affect the reading. For the best results, use the calibration techniques described below.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div id = "components" >
-                <h2 class="section-title"> Components in Spirit level online</h3>
+              <div id="components">
+                <h2 class="section-title">Understanding the Components</h2>
                 <p class="paragraph-margin">
-                  In Surface Mode, your mobile device acts as a traditional spirit level to check the level of flat surfaces. 
-                  Wall Mode is designed for checking the vertical (plumb) alignment of surfaces like walls, picture frames, or furniture. the app components are explained here to better use the app.
+                  This online spirit level has two main modes: Surface and Wall. Here’s a quick guide to the components in each mode.
                 </p>
-                <div id = "surface-mode-elements">
-                  <h3 >Surface Mode</h3>
+                <div id="surface-mode-elements">
+                  <h3>Surface Mode</h3>
                   <ul class="feature-list space-y-4">
                     <li>
-                      <strong>Circular Dial (Bullseye Level):</strong> 
-                      Acting as the primary visual indicator for 360° surface tilt, the circular dial features vertical and horizontal crosshairs to define the absolute zero point. The center ring serves as the target for the main bubble, allowing for rapid and intuitive 2D leveling.
+                      <strong>Circular Dial:</strong> A bullseye level that shows the surface angle in all directions.
                     </li>
-                    
-                    
-
                     <li>
-                      <strong>Main Bubble (Level Indicator):</strong> 
-                      A high-sensitivity dynamic circle that moves fluidly within the dial to reflect the device’s orientation relative to gravity. Achieving a perfectly centered bubble ensures your surface is balanced across all planes simultaneously.
+                      <strong>Main Bubble:</strong> The bubble in the circular dial. When it's in the center, your surface is level.
                     </li>
-
                     <li>
-                      <strong>Vertical Level (Y-Axis / Pitch):</strong> 
-                      This specialized rectangular display monitors the tilt along the device's shorter edge. Essential for cabinetry and construction, it tracks the "pitch" to ensure forward and backward alignment is spot on.
+                      <strong>Vertical & Horizontal Levels:</strong> Two rectangular levels that show the pitch (front to back) and roll (left to right) angles.
                     </li>
-
                     <li>
-                      <strong>Horizontal Level (X-Axis / Roll):</strong> 
-                      The horizontal rectangular display measures tilt along the device's longer edge. By tracking the "roll," it provides the stability data needed for shelving, appliances, and large-scale surface leveling.
-                    </li>
-
-                    <li>
-                      <strong>H-Bubble (X-Axis Precision):</strong> 
-                      Located within the horizontal display, the H-bubble offers granular, high-resolution feedback. It allows users to make micro-adjustments that standard spirit levels might miss, ensuring professional-grade accuracy.
-                    </li>
-
-                    <li>
-                      <strong>V-Bubble (Y-Axis Precision):</strong> 
-                      The V-bubble provides dedicated granular tracking for the vertical axis. This secondary indicator is crucial for complex installations where even a fraction of a degree in pitch can affect structural integrity.
-                    </li>
-
-                    <li>
-                      <strong>Degree Display (Y-Axis Pitch):</strong> 
-                      A digital inclinometer readout that provides the exact angle of the vertical slope. This numerical data eliminates guesswork, displaying precise pitch measurements in real-time.
-                    </li>
-
-                    <li>
-                      <strong>Degree Display (X-Axis Roll):</strong> 
-                      This digital readout shows the precise degree of horizontal tilt. It translates the bubble position into a clear numerical value, perfect for technical documentation and high-stakes engineering tasks.
+                      <strong>Degree Display:</strong> Shows the exact angle of the surface in degrees.
                     </li>
                   </ul>
-                  <svg id="svg-surface-comp" width="270" height="450" viewBox="0 0 140 510" xmlns="http://www.w3.org/2000/svg" >
+                  <svg id="svg-surface-comp" width="270" height="450" viewBox="0 0 140 510" xmlns="http://www.w3.org/2000/svg" aria-label="An infographic showing the components of the surface mode in the spirit level app. It points out the circular dial, main bubble, horizontal and vertical levels, and the degree display.">
                     <g transform="translate(-65,0) ">
                       <rect x="5" y="5" width="270" height="510" rx="25" fill="#1f2937"/>
                       <rect x="15" y="15" width="250" height="490" rx="15" fill="#0f172a"/>
@@ -275,34 +241,17 @@
                   <h3 >Elements in Wall Mode</h3>
                   <ul class="feature-list space-y-4">
                     <li>
-                      <strong>Wall Level Box (Vertical Spirit Level):</strong>
-                      A specialized rectangular visual interface that activates exclusively in Wall Mode. This high-contrast <strong>spirit level</strong> mimics a traditional physical level tool, providing a familiar reference point for checking the plumb and alignment of vertical surfaces like walls, doors, and frames.
+                      <strong>Wall Level Box:</strong> A classic spirit level interface for checking vertical surfaces.
                     </li>
-
-                    
-
                     <li>
-                      <strong>Wall Bubble (Precision Indicator):</strong>
-                      The dynamic bubble housed within the Wall Level Box that tracks real-time <strong>vertical alignment</strong>. Using the device's high-sensitivity gyroscope, it moves fluidly left or right to indicate tilt. Achieving a centered position between the guidelines confirms that your surface is perfectly vertical and stable.
+                      <strong>Wall Bubble:</strong> The bubble in the wall level. Center it between the lines to find the perfect vertical angle.
                     </li>
-
                     <li>
-                      <strong>Wall Degree (Digital Inclinometer):</strong>
-                      An ultra-precise numerical display that shows the exact angle of <strong>vertical tilt</strong>. This feature removes the guesswork of bubble positioning by providing a real-time digital readout, allowing for professional-grade accuracy down to a tenth of a degree.
-                    </li>
-
-                    <li>
-                      <strong>Visual Alignment Guides:</strong>
-                      Integrated markers within the Wall Level Box that define the "True Level" zone. These dual-line indicators provide a clear target for the Wall Bubble, ensuring that even minor deviations are instantly visible for rapid correction during construction or DIY projects.
-                    </li>
-                    
-                    <li>
-                      <strong>Haptic Level Feedback:</strong>
-                      An optional sensory feature that triggers a subtle vibration when the Wall Bubble reaches the 0° mark. This allows users to find the <strong>perfect level</strong> through touch, which is especially useful when the screen is partially obscured during high-reach installations.
+                      <strong>Wall Degree:</strong> Shows the exact vertical angle in degrees.
                     </li>
                   </ul>
 
-                  <svg id="svg-wall-comp"  width="320" height="200" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" >
+                  <svg id="svg-wall-comp"  width="320" height="200" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" aria-label="An infographic showing the components of the wall mode in the spirit level app. It points out the spirit level, bubble, and degree display.">
                     <g transform="translate(0,0) ">
                     <rect x="5" y="5" width="510" height="270" rx="25" fill="#1f2937"/>
                     <rect x="15" y="15" width="490" height="250" rx="15" fill="#0f172a"/>
@@ -347,8 +296,6 @@
                     </g>
                   </svg>
                 </div>
-                
-
               </div>
               
               <div  id="how-to-level-surface">
@@ -896,30 +843,26 @@
               </div>
 
               <div class="use-cases-section">
-                <h2>Detailed Use Cases for Our Spirit Level</h3>
-                <p class="paragraph-margin">This browser-based spirit level is a versatile tool for many tasks:</p>
+                <h2>What Can You Use a Spirit Level For?</h2>
+                <p class="paragraph-margin">An online spirit level is a handy tool for a variety of tasks:</p>
                 <ul class="feature-list space-y-4">
                   <li>
-                    <strong>DIY & Home Improvement:</strong>
-                    Hang picture frames perfectly straight every time. When assembling furniture or installing kitchen cabinets, use the spirit level to ensure everything is aligned. It's also perfect for leveling appliances like washing machines to prevent imbalance and vibration.
+                    <strong>Hanging Pictures:</strong> Make sure your photos and artwork are perfectly straight.
                   </li>
                   <li>
-                    <strong>Construction & Carpentry:</strong>
-                    Use this tool to ensure walls are perfectly vertical (plumb) and floors are level. When framing, check your studs and beams. It's also great for setting the proper slope for drainage on patios or walkways.
+                    <strong>Assembling Furniture:</strong> Ensure tables, chairs, and other furniture are stable and level.
                   </li>
                   <li>
-                    <strong>Photography & Videography:</strong>
-                    Avoid skewed horizons by using this tool to level your camera on a tripod. This is especially critical for landscape, architectural, and panoramic photography where straight lines are essential for a professional result.
+                    <strong>Leveling Appliances:</strong> Prevent washing machines from vibrating and ensure refrigerators run efficiently.
                   </li>
                   <li>
-                    <strong>Vehicle & RV Leveling:</strong>
-                    When camping, use it to level your caravan or RV for comfort and to ensure appliances (like refrigerators) function correctly.
+                    <strong>Construction and Carpentry:</strong> Check that walls are plumb and floors are level.
                   </li>
-                    <li>
-                    <strong>Installing Billiard Tables:</strong>
-                    Ensure a fair game by making your billiard table perfectly level. Even a tiny slope can affect the roll of the balls.
+                  <li>
+                    <strong>Photography:</strong> Avoid crooked shots by leveling your camera on a tripod.
                   </li>
                 </ul>
+                
               </div>
 
               <div class="faq-section">
