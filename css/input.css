@@ -28,7 +28,10 @@
     .wall-mode-view { @apply w-full  flex flex-col items-center justify-center; }
     .wall-degree { @apply mt-4 text-4xl font-mono; }
     .info-content { @apply p-8 space-y-8; }
-    .section-title { @apply text-2xl font-bold mb-4; }
+    h2 { @apply text-2xl text-center font-bold mb-4; }
+    h3 {@apply text-xl font-semibold mb-2}
+    ol{@apply space-y-2 mb-2}
+    svg{@apply bg-gray-800 rounded-2xl w-full h-full max-w-full}
     .content-list { @apply list-disc list-inside; }
     .faq-list { @apply space-y-4; }
     .faq-question { @apply font-semibold; }
@@ -163,3 +166,43 @@
 .dropdown-content li a:hover {
     background-color: #f1f1f1;
 }
+
+.faq-section {
+    @apply max-w-3xl mx-auto mt-12 mb-8;
+  }
+
+  .faq-container {
+    @apply space-y-3;
+  }
+
+  .faq-item {
+    @apply border border-slate-700 rounded-lg overflow-hidden bg-slate-800/50 hover:bg-slate-800 transition-colors;
+  }
+
+  .faq-question {
+    @apply w-full flex items-center justify-between px-6 py-4 text-left text-base font-medium text-white hover:bg-slate-700/50 transition-colors cursor-pointer;
+  }
+
+  .faq-question span {
+    @apply flex-1;
+  }
+
+  .faq-icon {
+    @apply w-5 h-5 ml-4 text-cyan-400 flex-shrink-0 transition-transform duration-300 ease-in-out;
+  }
+
+  .faq-item.active .faq-icon {
+    @apply rotate-180;
+  }
+
+  .faq-answer {
+    @apply  text-sm text-slate-400 border-t border-slate-700/50 max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
+  }
+
+  .faq-item.active .faq-answer {
+    @apply max-h-96 px-6 py-4;
+  }
+
+  .faq-answer p {
+    @apply leading-relaxed;
+  }
