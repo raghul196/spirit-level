@@ -6,7 +6,7 @@
 
     <link rel="apple-touch-icon" href="./logo_144.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spirit Level Online - Bubble Level for Any Surface</title>
+    <title>Spirit Level Online - Bubble Level for Any Surface or Wall</title>
     <meta name="description" content="A free online spirit level and bubble level to check for a level surface. Works on any device with a web browser and motion sensors.">
     <meta name="keywords" content="spirit level online, online spirit level, online bubble level, bubble level online, level surface online, surface level online, how to find if my surface is straight, how to find if my photo is straight, how to find if my tv is straight">
     <link rel="stylesheet" href="css/style.css">
@@ -18,7 +18,8 @@
         <header class="app-header">
             <div class="logo">
                 <img class = "h-8" src = "./logo_144.png" alt = "Spirit Level Logo" />
-                <h1 class="logo-text">Spirit level</h1>
+                <span class="logo-text">Spirit level</span>
+                <h1 class="visually-hidden">Online Spirit Level - Digital Bubble Level & Inclinometer</h1>
             </div>
 
             <div class="controls header-controls">
@@ -98,6 +99,10 @@
                     <div id="wall-bubble" class="bubble-rect"></div>
                 </div>
                 <div id="wall-degree" class="wall-degree">0.0°</div>
+                <div class = "rotate-device"> 
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g ><path d="M21.323 8.616l-4.94-4.94a1.251 1.251 0 0 0-1.767 0l-10.94 10.94a1.251 1.251 0 0 0 0 1.768l4.94 4.94a1.25 1.25 0 0 0 1.768 0l10.94-10.94a1.251 1.251 0 0 0 0-1.768zM14 5.707L19.293 11 11.5 18.793 6.207 13.5zm-4.323 14.91a.25.25 0 0 1-.354 0l-1.47-1.47.5-.5-2-2-.5.5-1.47-1.47a.25.25 0 0 1 0-.354L5.5 14.207l5.293 5.293zm10.94-10.94l-.617.616L14.707 5l.616-.616a.25.25 0 0 1 .354 0l4.94 4.94a.25.25 0 0 1 0 .353zm1.394 6.265V18a3.003 3.003 0 0 1-3 3h-3.292l1.635 1.634-.707.707-2.848-2.847 2.848-2.848.707.707L15.707 20h3.304a2.002 2.002 0 0 0 2-2v-2.058zM4 9H3V7a3.003 3.003 0 0 1 3-3h3.293L7.646 2.354l.707-.707 2.848 2.847L8.354 7.34l-.707-.707L9.28 5H6a2.002 2.002 0 0 0-2 2z"></path><path fill="none" d="M0 0h24v24H0z"></path></g></svg>
+                  <span>Rotate device for improved accuracy</span>
+                </div>  
               </div>
 
               <div class = "button-container">
@@ -131,8 +136,8 @@
               </div>
 
               <div class="section">
-                <h2 class="section-title">How to Use This Online Bubble Level</h2>
-                <p class="section-intro">
+                <h2 >How to Use This Online Bubble Level</h2>
+                <p >
                   This online bubble level turns your phone into a precision spirit level. It uses your device's built-in sensors to check if a surface is level. No app installation is needed—it runs right in your browser.
                 </p>
                 
@@ -745,7 +750,7 @@
               </div>
               
 
-              <div class="section">
+              <div id = "how-to-improve-accuracy" class="section">
                 <h2 >How to Improve Measurement Accuracy</h3>
                 <p class="paragraph-margin">
                   You can significantly improve the accuracy of your measurement and compensate for sensor bias by using a simple two-step calibration method. 
@@ -799,7 +804,7 @@
                 </div>
               </div>
                               
-              <div class="section">
+              <div id = "how-to-adjust-camera-bump" class="section">
                 <h2 >Adjusting for Protruding Cameras</h3>
                 <p class="paragraph-margin">
                   Modern smartphones often have camera bumps that prevent them from lying perfectly flat. This can interfere with accurate measurements, but you can easily correct for it using the <strong>Zero</strong> button, as illustrated below.
@@ -846,7 +851,7 @@
                 </div>
               </div>
 
-              <div class="section">
+              <div id = "applications" class="section">
                 <h2>What Can You Use a Spirit Level For?</h2>
                 <p class="paragraph-margin">An online spirit level is a handy tool for a variety of tasks:</p>
                 <ul >
@@ -875,13 +880,45 @@
                 <div class="faq-container">
                   <div class="faq-item">
                     <button class="faq-question">
-                      <span>How do I use this online spirit level?</span>
+                      <span>How do I use this online spirit level to level a surface?</span>
                       <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                     </button>
                     <div class="faq-answer">
-                      <p>Grant sensor access, press Start Measuring, and place your device on the surface. For flat surfaces, use 'Surface Mode'. For vertical edges, use 'Wall Mode'. The bubble shows the angle, and the numeric display gives you a precise reading.</p>
+                      <p>Grant sensor access, press Start Measuring, and place your device on the surface using 'Surface Mode'. 
+                        Adjust the surface till the bubble are in center and the both the hoziontal and vertial reading measures 0 degrees, you hear a continous beep when levelled
+                        For detailed Instruction with picture please refer <a href="/#how-to-level-surface">section</a> above</p>
                     </div>
                   </div>
+
+                  <div class="faq-item">
+                    <button class="faq-question">
+                      <span>How do I use this online spirit level to make installation on wall?</span>
+                      <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Grant sensor access, press Start Measuring, and place your device on the frame using 'Wall Mode'. 
+                        Adjust the frame till the bubble is in the center and the reading measures 0 degrees, you hear a continous beep when levelled.
+                        For Instruction 
+                        with picture please refer <a href="/#how-to-level-frame">section</a> above</p>
+                    </div>
+                  </div>
+
+                  <div class="faq-item">
+                    <button class="faq-question">
+                      <span>How can i find if the bubble is center without looking at the screen?</span>
+                      <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                      <p>
+                        Spirit level online is build with a audio feedback option 
+                        <span class = "inline-flex items-end justify-center w-4 h-4"><svg id = "audio-on" viewBox="0 0 24 24" class="h-6 w-6"  fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1657 2.14424C12.8728 2.50021 13 3.27314 13 3.7446V20.2561C13 20.7286 12.8717 21.4998 12.1656 21.8554C11.416 22.2331 10.7175 21.8081 10.3623 21.4891L4.95001 16.6248H3.00001C1.89544 16.6248 1.00001 15.7293 1.00001 14.6248L1 9.43717C1 8.3326 1.89543 7.43717 3 7.43717H4.94661L10.3623 2.51158C10.7163 2.19354 11.4151 1.76635 12.1657 2.14424ZM11 4.63507L6.00618 9.17696C5.82209 9.34439 5.58219 9.43717 5.33334 9.43717H3L3.00001 14.6248H5.33334C5.58015 14.6248 5.81823 14.716 6.00179 14.881L11 19.3731V4.63507Z" fill="#dddddd"></path> <path d="M16.0368 4.73124C16.1852 4.19927 16.7368 3.88837 17.2688 4.03681C20.6116 4.9696 23 8.22106 23 12C23 15.779 20.6116 19.0304 17.2688 19.9632C16.7368 20.1117 16.1852 19.8007 16.0368 19.2688C15.8884 18.7368 16.1993 18.1852 16.7312 18.0368C19.1391 17.3649 21 14.9567 21 12C21 9.04332 19.1391 6.63512 16.7312 5.96321C16.1993 5.81477 15.8884 5.2632 16.0368 4.73124Z" fill="#dddddd"></path> <path d="M16.2865 8.04192C15.7573 7.88372 15.2001 8.18443 15.0419 8.71357C14.8837 9.24271 15.1844 9.79992 15.7136 9.95812C16.3702 10.1544 17 10.9209 17 12C17 13.0791 16.3702 13.8456 15.7136 14.0419C15.1844 14.2001 14.8837 14.7573 15.0419 15.2865C15.2001 15.8156 15.7573 16.1163 16.2865 15.9581C17.9301 15.4667 19 13.8076 19 12C19 10.1924 17.9301 8.53333 16.2865 8.04192Z" fill="#dddddd"></path> </g></svg>
+                        </span> at top of the page,  
+                        which beeps continuously. the beep gets more frequent as the bubble reaches the center and on perfect center, the beep is continues indicating that the bubble is at the center
+                      </p>
+                    </div>
+                  </div>
+
+
 
                   <div class="faq-item">
                     <button class="faq-question">
@@ -909,16 +946,33 @@
                       <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                     </button>
                     <div class="faq-answer">
-                      <p>Place your phone on the surface, let the reading stabilize, then press the Zero button. This calibrates out the camera bump effect, allowing accurate measurements.</p>
+                      <p>Place your phone on the surface, let the reading stabilize, then press the Zero button. This calibrates out the camera bump effect, allowing accurate measurements.
+                        for detailed instruction with picture refer <a href="/#how-to-adjust-camera-bump">section</a> above
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div class="section">
-                <h3 class="subsection-title">100% Private and Secure</h3>
+                <h2 class="subsection-title">100% Private and Secure</h2>
                 <p>
                   We are committed to your privacy. All sensor data is processed directly on your device by the browser. No information is ever sent to our servers. We only count how many people use this website.
+                </p>
+              </div>
+              <div class="section">
+                <h2>Contact</h2>
+                <p>
+                  This online spirit level was built to solve the real-world problem of leveling a surface or frame. 
+                  If you have any queries or reviews, please contact me at 
+                  <a  href="mailto:contact@pvfreund.com">contact@pvfreund.com</a>.
+                </p>
+                <p>
+                  Some of my other projects include 
+                  <a href="https://pvfreund.com/">PV Freund</a>, a solar PV system design web app that lets you design your own system and validate its financial feasibility. 
+                  Apart from that, I have also designed an 
+                  <a href="https://online-inclinometer.com">Inclinometer</a> that runs in your browser to help you measure the slope of a surface, and an 
+                  <a href="https://whatismyaltitude.com">Altimeter</a> that tells you your current altitude.
                 </p>
               </div>
 
@@ -930,7 +984,7 @@
 
         <!-- Ad Container: 10% -->
         <aside class="ad-container">
-            <p class="ad-placeholder-text">Ad Container</p>
+            <p class="ad-placeholder-text"></p>
         </aside>
 
         <!-- Permission Modal -->
