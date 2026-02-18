@@ -1004,16 +1004,25 @@
     margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
   }
   border-radius: var(--radius-lg);
-  border-color: var(--color-slate-700);
-  background-color: var(--color-slate-800);
+  border-color: var(--color-slate-400);
+  background-color: var(--color-slate-300);
   padding: calc(var(--spacing) * 2);
   @media (orientation: portrait) {
     display: flex;
   }
 }
+.dark .rotate-device {
+  border-color: var(--color-slate-700);
+  background-color: var(--color-slate-800);
+  color: var(--color-white);
+}
 .rotate-device svg {
   height: 100%;
   width: 100%;
+  background-color: var(--color-slate-300);
+}
+.dark .rotate-device svg {
+  background-color: var(--color-slate-800);
 }
 @property --tw-rotate-x {
   syntax: "*";

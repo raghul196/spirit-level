@@ -285,9 +285,15 @@
   border-width: 0;
 }
 .rotate-device{
-  @apply hidden portrait:flex  border-slate-700 bg-slate-800
+  @apply hidden portrait:flex  border-slate-400 bg-slate-300
    rounded-lg h-36 p-2 max-w-2xl mx-auto flex-col mt-8 space-y-4
 }
+.dark .rotate-device {
+  @apply border-slate-700 bg-slate-800 text-white
+}
 .rotate-device svg{
-  @apply h-full w-full
+  @apply h-full w-full bg-slate-300
+}
+.dark .rotate-device svg {
+  @apply bg-slate-800
 }
