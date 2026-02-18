@@ -18,7 +18,7 @@
         <header class="app-header">
             <div class="logo">
                 <img class = "h-8" src = "./logo_144.png" alt = "Spirit Level Logo" />
-                <span class="logo-text">Spirit level</span>
+                <h1 class="logo-text">Spirit level</h1>
             </div>
 
             <div class="controls header-controls">
@@ -41,7 +41,7 @@
                     </button>
                     
                     <ul class="dropdown-content">
-                        <li><a href="/en">English <span>🇺🇸</span></a></li>
+                        <li><a href="/">English <span>🇺🇸</span></a></li>
                         <!-- <li><a href="/es">Español <span>🇪🇸</span> </a></li>
                         <li><a href="/fr"> Français <span>🇫🇷</span></a></li> -->
                     </ul>
@@ -59,59 +59,63 @@
                 <button id="wall-mode-btn" class="mode-button">Wall</button>
             </div> 
             <div class="actual-content">
-                <!-- Surface Mode Content -->
-                <div id="surface-mode-content" class="surface-mode-view">
-                    <div class="surface-dials">
-                        <div id="circular-dial" class="circular-dial">
-                            <div class="crosshair-h"></div>
-                            <div class="crosshair-v"></div>
-                            <div id="center-ring"></div>
-                            <div id="bubble-main"></div>
-                        </div>
-                        <div id="vertical-level" class="level-box-y items-center justify-self-end">
-                            <div class="absolute inset-0 flex flex-col justify-center items-center gap-8 pointer-events-none">
-                                <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
-                                <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
-                            </div>
-                            <div id="v-bubble" class="bubble-rect"></div>
-                        </div>
-
-                        <div id="horizontal-level" class="level-box-x flex justify-center self-end">
-                          <div class="absolute inset-0 flex justify-center items-center gap-8 pointer-events-none">
-                            <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
-                            <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
+              <!-- Surface Mode Content -->
+              <div id="surface-mode-content" class="surface-mode-view">
+                  <div class="surface-dials">
+                      <div id="circular-dial" class="circular-dial">
+                          <div class="crosshair-h"></div>
+                          <div class="crosshair-v"></div>
+                          <div id="center-ring"></div>
+                          <div id="bubble-main"></div>
+                      </div>
+                      <div id="vertical-level" class="level-box-y items-center justify-self-end">
+                          <div class="absolute inset-0 flex flex-col justify-center items-center gap-8 pointer-events-none">
+                              <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
+                              <div class="h-[1px] w-full bg-gray-400 dark:bg-gray-500"></div>
                           </div>
-                          <div id="h-bubble" class="bubble-rect"></div>
+                          <div id="v-bubble" class="bubble-rect"></div>
+                      </div>
 
+                      <div id="horizontal-level" class="level-box-x flex justify-center self-end">
+                        <div class="absolute inset-0 flex justify-center items-center gap-8 pointer-events-none">
+                          <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
+                          <div class="w-[1px] h-full bg-gray-400 dark:bg-gray-500"></div>
                         </div>
+                        <div id="h-bubble" class="bubble-rect"></div>
 
-                        <div id="degree-display" class="degree-display-wrapper">
-                          <div id="degree-y" class="degree-text">0.0°</div>
-                          <div id="degree-x" class="degree-text">0.0°</div>
-                        </div>
-                    </div>
-                </div>
+                      </div>
 
-                <!-- Wall Mode Content -->
-                <div id="wall-mode-content" class="wall-mode-view hidden">
-                  <div id="wall-level" class="wall-level-box">
-                      <div id="wall-bubble" class="bubble-rect"></div>
+                      <div id="degree-display" class="degree-display-wrapper">
+                        <div id="degree-y" class="degree-text">0.0°</div>
+                        <div id="degree-x" class="degree-text">0.0°</div>
+                      </div>
                   </div>
-                  <div id="wall-degree" class="wall-degree">0.0°</div>
-                </div>
+              </div>
 
-                <div class = "button-container">
-                  <button id = "zero-btn"> Zero</button>
-                  <button id = "start-measurement-btn" class = "measure-btn">Start measurement</button>
-                  <button id = "stop-measurement-btn" class = "measure-btn hidden"> Stop Measurement</button>
-
+              <!-- Wall Mode Content -->
+              <div id="wall-mode-content" class="wall-mode-view hidden">
+                <div id="wall-level" class="wall-level-box">
+                    <div id="wall-bubble" class="bubble-rect"></div>
                 </div>
+                <div id="wall-degree" class="wall-degree">0.0°</div>
+              </div>
+
+              <div class = "button-container">
+                <button id = "zero-btn"> Zero</button>
+                <button id = "start-measurement-btn" class = "measure-btn">Start measurement</button>
+                <button id = "stop-measurement-btn" class = "measure-btn hidden"> Stop Measurement</button>
 
               </div>
 
-              <div class = "hidden md:flex">
+            </div>
 
+            <div class="qr-container">
+              <div class = "qr-text">
+                <strong class = "text-lg">Using this on your Computer? </strong>
+                <p> Most computers lack the required sensors. <strong>Scan the QR code</strong> to continue on your mobile device.</p>
               </div>
+              <img src = "./qr/en.png" alt = "QR code for this website" >
+            </div>
 
           </div>
 
@@ -126,7 +130,7 @@
                 </p>
               </div>
 
-              <div class="how-it-works-section">
+              <div class="section">
                 <h2 class="section-title">How to Use This Online Bubble Level</h2>
                 <p class="section-intro">
                   This online bubble level turns your phone into a precision spirit level. It uses your device's built-in sensors to check if a surface is level. No app installation is needed—it runs right in your browser.
@@ -134,8 +138,8 @@
                 
                 <div class="section-grid">
                   <div>
-                    <h3 class="subsection-title">Key Features</h3>
-                    <ul class="feature-list">
+                    <h3>Key Features</h3>
+                    <ul >
                       <li><strong>Instant Measurements:</strong> Get real-time angle readings as soon as you place your phone on a surface.</li>
                       <li><strong>Two Modes:</strong> Use 'Surface Mode' for flat surfaces and 'Wall Mode' for vertical ones.</li>
                       <li><strong>Simple Interface:</strong> The virtual bubble provides a clear visual guide, just like a real spirit level.</li>
@@ -144,7 +148,7 @@
                     </ul>
                   </div>
                   <div>
-                    <h3 class="subsection-title">A Note on Accuracy</h3>
+                    <h3 >A Note on Accuracy</h3>
                     <p class="paragraph-margin">
                       While this online level is great for most DIY tasks, it's not a replacement for a professional, calibrated spirit level. The accuracy depends on your phone's sensors, and small bumps can affect the reading. For the best results, use the calibration techniques described below.
                     </p>
@@ -152,14 +156,14 @@
                 </div>
               </div>
 
-              <div id="components">
+              <div id="components" class="section">
                 <h2 class="section-title">Understanding the Components</h2>
                 <p class="paragraph-margin">
                   This online spirit level has two main modes: Surface and Wall. Here’s a quick guide to the components in each mode.
                 </p>
                 <div id="surface-mode-elements">
                   <h3>Surface Mode</h3>
-                  <ul class="feature-list space-y-4">
+                  <ul>
                     <li>
                       <strong>Circular Dial:</strong> A bullseye level that shows the surface angle in all directions.
                     </li>
@@ -239,7 +243,7 @@
                 </div>
                 <div id = "wall-mode-elements">
                   <h3 >Elements in Wall Mode</h3>
-                  <ul class="feature-list space-y-4">
+                  <ul >
                     <li>
                       <strong>Wall Level Box:</strong> A classic spirit level interface for checking vertical surfaces.
                     </li>
@@ -298,9 +302,9 @@
                 </div>
               </div>
               
-              <div  id="how-to-level-surface">
+              <div  id="how-to-level-surface" class="section">
                 <h2 >How to level Surface using Spirit level online?</h4>
-                <ol class="feature-list list-decimal mb-4">
+                <ol class="list-decimal ">
                   <li><strong>Select 'Surface' Mode:</strong> Ensure the 'Surface' button is active in the mode slider.</li>
                   <li><strong>Place Device:</strong> Lay your smartphone or tablet flat on the surface you wish to measure.</li>
                   <div class="flex justify-center items-center my-6 mx-auto w-full ">
@@ -570,11 +574,11 @@
                 </ol>
               </div>
 
-              <div  id = "how-to-level-frame" class="mode-details-section mt-8">
+              <div  id = "how-to-level-frame" class="section">
 
                 <h2>How to level a frame on wall?</h2>
 
-                <ol class="feature-list list-decimal mb-4">
+                <ol class="list-decimal">
                   <li><strong>Select 'Wall' Mode:</strong> Ensure the 'Wall' button is active in the mode slider.</li>
                   <svg   width="620" height="320" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg">
                     <g transform="translate(0,0) ">
@@ -741,13 +745,13 @@
               </div>
               
 
-              <div class="accuracy-section">
+              <div class="section">
                 <h2 >How to Improve Measurement Accuracy</h3>
                 <p class="paragraph-margin">
                   You can significantly improve the accuracy of your measurement and compensate for sensor bias by using a simple two-step calibration method. 
                   This process effectively cancels out most of the phone's inherent zero-offset error.
                 </p>
-                <ol class="feature-list list-decimal">
+                <ol class="list-decimal">
                   <li><strong>First Measurement:</strong> Place your phone on the surface you want to measure and note the angle reading (e.g. 0.8°).</li>
                   <li><strong>Second Measurement:</strong> Without lifting it, rotate your phone exactly 180° in the same spot and take a second reading (e.g. -1.0°).</li>
                   <li><strong>Calculate the True Offset:</strong> The true angle is the average of these two measurements. For example: (0.8 + (-1.0)) / 2 = -0.1°. This shows your surface is very close to level, with a small offset. A perfectly calibrated level would read 0.5° and -0.5° in this example if the surface had a 0.5° tilt.</li>
@@ -795,12 +799,12 @@
                 </div>
               </div>
                               
-              <div class="accuracy-section">
+              <div class="section">
                 <h2 >Adjusting for Protruding Cameras</h3>
                 <p class="paragraph-margin">
                   Modern smartphones often have camera bumps that prevent them from lying perfectly flat. This can interfere with accurate measurements, but you can easily correct for it using the <strong>Zero</strong> button, as illustrated below.
                 </p>
-                <ol class="feature-list list-decimal">
+                <ol class="list-decimal">
                   <li><strong>Place and Observe:</strong> Position your phone on the surface. Notice that the camera bump creates a slight, stable tilt, showing a non-zero reading.</li>
                   <li><strong>Press Zero:</strong> Tap the <strong>Zero</strong> button. This instructs the spirit level to treat the phone's current tilted position as the new "0°" reference point.</li>
                   <li><strong>Measure Accurately:</strong> The display will now read 0°. The effect of the camera bump is cancelled out, allowing you to take accurate measurements relative to the surface.</li>
@@ -842,10 +846,10 @@
                 </div>
               </div>
 
-              <div class="use-cases-section">
+              <div class="section">
                 <h2>What Can You Use a Spirit Level For?</h2>
                 <p class="paragraph-margin">An online spirit level is a handy tool for a variety of tasks:</p>
-                <ul class="feature-list space-y-4">
+                <ul >
                   <li>
                     <strong>Hanging Pictures:</strong> Make sure your photos and artwork are perfectly straight.
                   </li>
@@ -865,7 +869,7 @@
                 
               </div>
 
-              <div class="faq-section">
+              <div class="section">
                 <h2 class="section-title">Frequently Asked Questions</h2>
 
                 <div class="faq-container">
@@ -911,7 +915,7 @@
                 </div>
               </div>
 
-              <div class="section-outro">
+              <div class="section">
                 <h3 class="subsection-title">100% Private and Secure</h3>
                 <p>
                   We are committed to your privacy. All sensor data is processed directly on your device by the browser. No information is ever sent to our servers. We only count how many people use this website.

@@ -28,10 +28,12 @@
     .wall-mode-view { @apply w-full  flex flex-col items-center justify-center; }
     .wall-degree { @apply mt-4 text-4xl font-mono; }
     .info-content { @apply p-8 space-y-8; }
-    h2 { @apply text-2xl text-center font-bold mb-4; }
-    h3 {@apply text-xl font-semibold mb-2}
+    h2 { @apply text-2xl text-center font-bold mb-2; }
+    h3 {@apply text-xl font-semibold }
+    p{@apply mb-4}
     ol{@apply space-y-2 mb-2}
     svg{@apply bg-gray-800 rounded-2xl w-full h-full max-w-full}
+    li{@apply p-2}
     .content-list { @apply list-disc list-inside; }
     .faq-list { @apply space-y-4; }
     .faq-question { @apply font-semibold; }
@@ -166,10 +168,13 @@
 .dropdown-content li a:hover {
     background-color: #f1f1f1;
 }
+.section{
+  @apply mx-auto mt-12 mb-8 
+}
+.section div{
+  @apply  mb-3
+}
 
-.faq-section {
-    @apply max-w-3xl mx-auto mt-12 mb-8;
-  }
 
   .faq-container {
     @apply space-y-3;
@@ -206,3 +211,14 @@
   .faq-answer p {
     @apply leading-relaxed;
   }
+
+  .qr-container{
+  @apply
+    hidden sm:flex border border-slate-700 bg-slate-800
+    rounded-lg h-36 p-2 max-w-2xl mx-auto
+}
+.qr-text{
+  @apply
+    text-slate-300 px-2 pr-4 flex flex-col gap-4 justify-center
+}
+ 
