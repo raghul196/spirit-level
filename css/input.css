@@ -2,24 +2,32 @@
 
 @layer components {
     .page-body {
-        @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans;
+        @apply bg-gray-100 text-gray-900 font-sans;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        -moz-osx-smoothing: grayscale;
+    }
+    .dark .page-body {
+        @apply bg-gray-900 text-gray-100;
     }
     .app-container { @apply h-[100dvh] w-full flex flex-col; }
-    .app-header { @apply h-[10%] flex justify-between items-center p-4 bg-gray-200 dark:bg-gray-800; }
+    .app-header { @apply h-[10%] flex justify-between items-center p-4 bg-gray-200; }
+    .dark .app-header { @apply bg-gray-800; }
     .logo {
       @apply flex flex-row space-x-4 items-center;
     }
     .logo-text { @apply text-xl font-bold; }
     .header-controls { @apply flex items-center ; }
-    .control-button { @apply p-2 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full; }
+    .control-button { @apply p-2 bg-transparent rounded-full; }
+    
+
     .app-content { @apply h-[80%] flex flex-col mx-auto max-w-2xl overflow-y-auto; }
     .main-view { @apply flex-shrink-0 h-full w-full flex flex-col items-center p-4; }
     
-    .mode-slider { @apply mb-4 justify-self-start flex space-x-2 bg-gray-200 dark:bg-gray-700 p-1 rounded-full; }
+    .mode-slider { @apply mb-4 justify-self-start flex space-x-2 bg-gray-200 p-1 rounded-full; }
+    .dark .mode-slider { @apply bg-gray-700; }
     .mode-button { @apply px-4 py-1 rounded-full; }
-    .mode-button.active { @apply bg-white dark:bg-gray-500; }
+    .mode-button.active { @apply bg-white; }
+    .dark .mode-button.active { @apply bg-gray-500; }
 
     .actual-content{@apply w-full flex flex-col flex-1  space-y-6 justify-center items-center }
 
@@ -32,16 +40,18 @@
     h3 {@apply text-xl font-semibold }
     p{@apply mb-4}
     ol{@apply space-y-2 mb-2}
-    svg{@apply bg-gray-800 rounded-2xl w-full h-full max-w-full}
+    svg{@apply  rounded-2xl w-full h-full max-w-full}
     li{@apply p-2}
     .content-list { @apply list-disc list-inside; }
     .faq-list { @apply space-y-4; }
     .faq-question { @apply font-semibold; }
     .app-footer { @apply text-center text-sm text-gray-500 py-4; }
-    .ad-container { @apply h-[10%] bg-gray-200 dark:bg-gray-800 flex items-center justify-center; }
+    .ad-container { @apply h-[10%] bg-gray-200 flex items-center justify-center; }
+    .dark .ad-container { @apply bg-gray-800; }
     .ad-placeholder-text { @apply text-gray-500; }
     .permission-modal { @apply absolute inset-0 bg-gray-900 flex items-center justify-center; }
-    .permission-modal-content { @apply bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl text-center; }
+    .permission-modal-content { @apply bg-white p-8 rounded-lg shadow-xl text-center; }
+    .dark .permission-modal-content { @apply bg-gray-800; }
     .permission-title { @apply text-2xl font-bold mb-4; }
     .permission-text { @apply mb-6; }
     .permission-button { @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg; }
@@ -50,32 +60,44 @@
   .circular-dial {
     @apply relative w-[250px] h-[250px] rounded-full border-4
     bg-gray-200 border-gray-400
-    
      flex items-center justify-center;
   }
   .dark .circular-dial{
     @apply border-gray-600 bg-gray-500
   }
+  .app-content svg{
+    @apply bg-gray-800
+  }
 
   /* Crosshairs (Horizontal & Vertical) */
   .crosshair-h, 
   .crosshair-v {
-    @apply absolute bg-gray-500 dark:bg-gray-600;
+    @apply absolute bg-gray-500;
+  }
+  .dark .crosshair-h,
+  .dark .crosshair-v {
+    @apply bg-gray-600;
   }
   .crosshair-h { @apply w-full h-[1px]; }
   .crosshair-v { @apply h-full w-[1px]; }
 
   /* Center Target Ring */
   #center-ring {
-    @apply w-10 h-10 rounded-full border border-gray-500 dark:border-gray-600;
+    @apply w-10 h-10 rounded-full border border-gray-500;
+  }
+  .dark #center-ring {
+    @apply border-gray-600;
   }
 
   /* Shared Bubble Styles */
   #bubble-main, 
   .bubble-rect {
     @apply absolute rounded-full border transition-transform duration-100 ease-linear
-     bg-gray-600/70 border-gray-300
-    dark:bg-gray-400/70 dark:border-gray-600;
+     bg-gray-600/70 border-gray-300;
+  }
+  .dark #bubble-main,
+  .dark .bubble-rect {
+    @apply bg-gray-400/70 border-gray-600;
   }
 
   /* Specific Bubble Sizes */
@@ -85,31 +107,42 @@
 
   /* Level Containers */
   .level-box-x {
-    @apply relative flex items-center w-[250px] h-10 px-1 mt-2 rounded-lg;
-    @apply bg-gray-200 dark:bg-gray-700;
+    @apply relative flex items-center w-[250px] h-10 px-1 mt-2 rounded-lg bg-gray-200;
+  }
+  .dark .level-box-x {
+      @apply bg-gray-700;
   }
 
   .level-box-y {
-    @apply relative flex justify-center w-10 h-[250px] py-1 rounded-lg;
-    @apply bg-gray-200 dark:bg-gray-700;
+    @apply relative flex justify-center w-10 h-[250px] py-1 rounded-lg bg-gray-200;
+  }
+  .dark .level-box-y {
+      @apply bg-gray-700;
   }
 
   .wall-level-box {
-    @apply relative flex items-center w-[90%] max-w-[400px] h-[60px] px-[6px] rounded-lg;
-    @apply bg-gray-200 dark:bg-gray-700 flex justify-center;
+    @apply relative flex items-center w-[90%] max-w-[400px] h-[60px] px-[6px] rounded-lg bg-gray-200 flex justify-center;
+  }
+  .dark .wall-level-box {
+      @apply bg-gray-700;
   }
 
-  /* Degree Display with Diagonal Line */
-  .degree-display-wrapper {
-    @apply relative flex flex-col justify-between items-center w-20 h-20 font-mono text-lg;
-    background: linear-gradient(to top right, transparent 49.5%, theme('colors.gray.400') 49.5%, theme('colors.gray.400') 50.5%, transparent 50.5%);
-  }
+      /* Degree Display with Diagonal Line */
+      .degree-display-wrapper {
+          @apply relative flex flex-col justify-between items-center w-20 h-20 font-mono text-lg;
+          background: linear-gradient(to top right, transparent 49.5%, theme('colors.gray.400') 49.5%, theme('colors.gray.400') 50.5%, transparent 50.5%);
+      }
+  
+      .dark .degree-display-wrapper {
+          background: linear-gradient(to top right, transparent 49.5%, theme('colors.gray.600') 49.5%, theme('colors.gray.600') 50.5%, transparent 50.5%);
+      }
+      /* Custom styles for control button SVG icons to adapt to dark/light mode */
+      .control-button svg {
+          fill: currentColor !important; /* Override inline fill for light/dark mode */
+          stroke: currentColor !important; /* Ensure stroke also follows text color if present */
+      }
 
-  .dark .degree-display-wrapper {
-    background: linear-gradient(to top right, transparent 49.5%, theme('colors.gray.600') 49.5%, theme('colors.gray.600') 50.5%, transparent 50.5%);
-  }
-}
-    #degree-y { @apply self-end pr-1 pt-1; }
+  }    #degree-y { @apply self-end pr-1 pt-1; }
     #degree-x { @apply self-start pl-1 pb-1; }
 }
 
@@ -122,12 +155,18 @@
     @apply flex justify-center items-center gap-3 w-full px-4;
 }
 #zero-btn{
-    @apply w-1/2 p-3 border bg-amber-300 text-black rounded-full
+    @apply w-1/2 p-3 border bg-amber-600 text-white rounded-full
 }
+.dark #zero-btn {
+    @apply text-black bg-amber-300
+  }
 .measure-btn{
-    @apply w-1/2 p-3 border bg-blue-300 text-black rounded-full
+    @apply w-1/2 p-3 border  rounded-full text-white bg-blue-600
 }
-
+.dark .measure-btn{
+  @apply
+    bg-blue-300 text-black
+}
 /* Container for positioning */
 .language-dropdown {
     position: relative;
@@ -175,30 +214,40 @@
   @apply  mb-3
 }
 .section a{
-  @apply  text-blue-400
+@apply  text-blue-400
 }
 
 
   .faq-container {
     @apply space-y-3;
   }
-
   .faq-item {
-    @apply border border-slate-700 rounded-lg overflow-hidden bg-slate-800/50 hover:bg-slate-800 transition-colors;
+    @apply border border-slate-300 rounded-lg overflow-hidden bg-slate-200/50 hover:bg-slate-300 transition-colors
   }
+
+  .dark .faq-item  {
+    @apply  border-slate-700  bg-slate-800/50 hover:bg-slate-800 ;
+  }
+
+
 
   .faq-question {
-    @apply w-full flex items-center justify-between px-6 py-4 text-left text-base font-medium text-white hover:bg-slate-700/50 transition-colors cursor-pointer;
+    @apply w-full flex items-center justify-between px-6 py-4 text-left text-base font-medium text-black hover:bg-slate-700/50 transition-colors cursor-pointer;
   }
-
+  .dark .faq-question {
+    @apply text-white
+  }
   .faq-question span {
     @apply flex-1;
   }
 
   .faq-icon {
-    @apply w-5 h-5 ml-4 text-cyan-400 flex-shrink-0 transition-transform duration-300 ease-in-out;
+    @apply w-5 h-5 ml-4 text-cyan-600 flex-shrink-0 transition-transform duration-300 ease-in-out;
   }
 
+  .dark .faq-icon{
+    @apply text-cyan-400
+  }
   .faq-item.active .faq-icon {
     @apply rotate-180;
   }

@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const permissionModal = document.getElementById('permission-modal');
     const permissionBtn = document.getElementById('permission-btn');
     const audioToggle = document.getElementById('audio-toggle');
+    const audioOnIcon = document.getElementById('audio-on');
+    const audioOffIcon = document.getElementById('audio-off');
     
     const surfaceModeBtn = document.getElementById('surface-mode-btn');
     const wallModeBtn = document.getElementById('wall-mode-btn');
@@ -59,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    const currentTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
     applyTheme(currentTheme);
 
     themeSwitch.addEventListener('click', () => {
@@ -68,14 +70,43 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(newTheme);
     });
     
+    // --- Audio Toggle ---
+    const setupAudio = () => {
+        // Default to audio ON if no setting is stored
+        const audioPreference = localStorage.getItem('audio');
+        isAudioOn = audioPreference === null ? true : audioPreference === 'true';
+        updateAudioUI();
+    };
+
+    const updateAudioUI = () => {
+        if (isAudioOn) {
+            audioOnIcon.classList.remove('hidden');
+            audioOffIcon.classList.add('hidden');
+        } else {
+            audioOnIcon.classList.add('hidden');
+            audioOffIcon.classList.remove('hidden');
+        }
+    };
+
+    audioToggle.addEventListener('click', () => {
+        isAudioOn = !isAudioOn;
+        localStorage.setItem('audio', isAudioOn);
+        updateAudioUI();
+        if (!isAudioOn) {
+            stopContinuousBeep();
+        } else if (audioContext && audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
+    });
+
     // --- Mode Management ---
     surfaceModeBtn.addEventListener('click', () => {
         if (isSurfaceMode) return;
         isSurfaceMode = true;
         wallModeContent.classList.add('hidden');
         surfaceModeContent.classList.remove('hidden');
-        wallModeBtn.classList.remove('bg-white', 'dark:bg-gray-500');
-        surfaceModeBtn.classList.add('bg-white', 'dark:bg-gray-500');
+        wallModeBtn.classList.remove('active');
+        surfaceModeBtn.classList.add('active');
     });
 
     wallModeBtn.addEventListener('click', () => {
@@ -83,8 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
         isSurfaceMode = false;
         surfaceModeContent.classList.add('hidden');
         wallModeContent.classList.remove('hidden');
-        surfaceModeBtn.classList.remove('bg-white', 'dark:bg-gray-500');
-        wallModeBtn.classList.add('bg-white', 'dark:bg-gray-500');
+        surfaceModeBtn.classList.remove('active');
+        wallModeBtn.classList.add('active');
     });
 
     // --- Audio Handling ---
@@ -165,13 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const { beta, gamma } = event; // beta: pitch (y-axis), gamma: roll (x-axis)
         lastPitch = beta;
         lastRoll = gamma;
-
-        // Auto-switch mode based on angle
-        // if (isSurfaceMode && (Math.abs(beta) > 45 || Math.abs(gamma) > 45)) {
-        //     wallModeBtn.click();
-        // } else if (!isSurfaceMode && (Math.abs(beta) < 45 && Math.abs(gamma) < 45)) {
-        //     surfaceModeBtn.click();
-        // }
         
         if (isSurfaceMode) {
             updateSurfaceMode(beta, gamma);
@@ -185,15 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPitch = pitch - pitchOffset;
         const currentRoll = roll - rollOffset;
 
-        // Clamp angles to prevent extreme values
         const clampedPitch = Math.max(-45, Math.min(45, currentPitch));
         const clampedRoll = Math.max(-45, Math.min(45, currentRoll));
 
-        // Update degree text
         degreeX.textContent = `${clampedRoll.toFixed(1)}°`;
         degreeY.textContent = `${clampedPitch.toFixed(1)}°`;
 
-        // Calculate bubble positions
         const dialRadius = circularDial.offsetWidth / 2;
         const bubbleRadius = bubbleMain.offsetWidth / 2;
         const maxBubbleTravel = dialRadius - bubbleRadius;
@@ -203,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         bubbleMain.style.transform = `translate(${bubbleX}px, ${bubbleY}px)`;
 
-        // Update rectangular levels
         const hLevelWidth = hLevel.offsetWidth;
         const hBubbleWidth = hBubble.offsetWidth;
         const maxHBubbleTravel = (hLevelWidth - hBubbleWidth) / 2;
@@ -222,10 +242,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let angle = 0;
 
         if (isPortrait) {
-            // In portrait, roll is the primary leveling axis
             angle = roll - rollOffset;
         } else {
-            // In landscape, pitch becomes the primary leveling axis
             angle = pitch - pitchOffset;
         }
         
@@ -260,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
         startBtn.classList.remove('hidden');
         stopBtn.classList.add('hidden');
         window.removeEventListener('deviceorientation', handleOrientation);
-        // Reset offsets and audio when stopping
         pitchOffset = 0;
         rollOffset = 0;
         stopContinuousBeep();
@@ -268,7 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const requestSensorAccess = () => {
         if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-            // iOS 13+
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
@@ -280,41 +296,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(console.error);
         } else {
-            // Non-iOS 13+ browsers
             permissionModal.classList.add('hidden');
             startMeasuring();
         }
     };
 
     // --- Event Listeners ---
-    audioToggle.addEventListener('click', () => {
-        isAudioOn = !isAudioOn;
-        audioToggle.classList.toggle('active', isAudioOn);
-    
-        if (isAudioOn) {
-            if (audioContext && audioContext.state === 'suspended') {
-                audioContext.resume();
-            }
-            if(audioContext) {
-                lastBeepTime = audioContext.currentTime;
-            }
-            document.getElementById('audio-on').classList.remove('hidden');
-            document.getElementById('audio-off').classList.add('hidden');
-        } else {
-            stopContinuousBeep();
-            document.getElementById('audio-on').classList.add('hidden');
-            document.getElementById('audio-off').classList.remove('hidden');
-        }
-    });
-
     permissionBtn.addEventListener('click', requestSensorAccess);
 
     startBtn.addEventListener('click', () => {
-        // For non-iOS, or if permission already granted, start.
         if (typeof DeviceOrientationEvent === 'undefined' || typeof DeviceOrientationEvent.requestPermission !== 'function') {
              startMeasuring();
         } else {
-             // For iOS, show permission modal.
             permissionModal.classList.remove('hidden');
         }
     });
@@ -346,5 +339,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
+    // --- Initializations ---
+    setupAudio();
 
 });

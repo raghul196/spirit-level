@@ -8,11 +8,14 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-cyan-400: oklch(78.9% 0.154 211.53);
+    --color-cyan-600: oklch(60.9% 0.126 221.723);
     --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
+    --color-slate-200: oklch(92.9% 0.013 255.508);
     --color-slate-300: oklch(86.9% 0.022 252.894);
     --color-slate-400: oklch(70.4% 0.04 256.788);
     --color-slate-700: oklch(37.2% 0.044 257.287);
@@ -312,9 +315,6 @@
   .bg-gray-400 {
     background-color: var(--color-gray-400);
   }
-  .bg-white {
-    background-color: var(--color-white);
-  }
   .text-lg {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
@@ -340,14 +340,12 @@
     background-color: var(--color-gray-100);
     font-family: var(--font-sans);
     color: var(--color-gray-900);
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-gray-900);
-    }
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-gray-100);
-    }
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-smoothing: grayscale;
+  }
+  .dark .page-body {
+    background-color: var(--color-gray-900);
+    color: var(--color-gray-100);
   }
   .app-container {
     display: flex;
@@ -362,9 +360,9 @@
     justify-content: space-between;
     background-color: var(--color-gray-200);
     padding: calc(var(--spacing) * 4);
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-gray-800);
-    }
+  }
+  .dark .app-header {
+    background-color: var(--color-gray-800);
   }
   .logo {
     display: flex;
@@ -388,19 +386,8 @@
   }
   .control-button {
     border-radius: calc(infinity * 1px);
+    background-color: transparent;
     padding: calc(var(--spacing) * 2);
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-gray-300);
-      }
-    }
-    @media (prefers-color-scheme: dark) {
-      &:hover {
-        @media (hover: hover) {
-          background-color: var(--color-gray-700);
-        }
-      }
-    }
   }
   .app-content {
     margin-inline: auto;
@@ -431,9 +418,9 @@
     border-radius: calc(infinity * 1px);
     background-color: var(--color-gray-200);
     padding: calc(var(--spacing) * 1);
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-gray-700);
-    }
+  }
+  .dark .mode-slider {
+    background-color: var(--color-gray-700);
   }
   .mode-button {
     border-radius: calc(infinity * 1px);
@@ -442,9 +429,9 @@
   }
   .mode-button.active {
     background-color: var(--color-white);
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-gray-500);
-    }
+  }
+  .dark .mode-button.active {
+    background-color: var(--color-gray-500);
   }
   .actual-content {
     display: flex;
@@ -527,7 +514,6 @@
     width: 100%;
     max-width: 100%;
     border-radius: var(--radius-2xl);
-    background-color: var(--color-gray-800);
   }
   li {
     padding: calc(var(--spacing) * 2);
@@ -560,9 +546,9 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-gray-200);
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-gray-800);
-    }
+  }
+  .dark .ad-container {
+    background-color: var(--color-gray-800);
   }
   .ad-placeholder-text {
     color: var(--color-gray-500);
@@ -582,9 +568,9 @@
     text-align: center;
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-gray-800);
-    }
+  }
+  .dark .permission-modal-content {
+    background-color: var(--color-gray-800);
   }
   .permission-title {
     margin-bottom: calc(var(--spacing) * 4);
@@ -628,12 +614,15 @@
       border-color: var(--color-gray-600);
       background-color: var(--color-gray-500);
     }
+    .app-content svg {
+      background-color: var(--color-gray-800);
+    }
     .crosshair-h, .crosshair-v {
       position: absolute;
       background-color: var(--color-gray-500);
-      @media (prefers-color-scheme: dark) {
-        background-color: var(--color-gray-600);
-      }
+    }
+    .dark .crosshair-h, .dark .crosshair-v {
+      background-color: var(--color-gray-600);
     }
     .crosshair-h {
       height: 1px;
@@ -650,9 +639,9 @@
       border-style: var(--tw-border-style);
       border-width: 1px;
       border-color: var(--color-gray-500);
-      @media (prefers-color-scheme: dark) {
-        border-color: var(--color-gray-600);
-      }
+    }
+    .dark #center-ring {
+      border-color: var(--color-gray-600);
     }
     #bubble-main, .bubble-rect {
       position: absolute;
@@ -671,14 +660,12 @@
       transition-duration: 100ms;
       --tw-ease: linear;
       transition-timing-function: linear;
-      @media (prefers-color-scheme: dark) {
-        border-color: var(--color-gray-600);
-      }
-      @media (prefers-color-scheme: dark) {
-        background-color: color-mix(in srgb, oklch(70.7% 0.022 261.325) 70%, transparent);
-        @supports (color: color-mix(in lab, red, red)) {
-          background-color: color-mix(in oklab, var(--color-gray-400) 70%, transparent);
-        }
+    }
+    .dark #bubble-main, .dark .bubble-rect {
+      border-color: var(--color-gray-600);
+      background-color: color-mix(in srgb, oklch(70.7% 0.022 261.325) 70%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-gray-400) 70%, transparent);
       }
     }
     #bubble-main {
@@ -701,11 +688,11 @@
       width: 250px;
       align-items: center;
       border-radius: var(--radius-lg);
-      padding-inline: calc(var(--spacing) * 1);
       background-color: var(--color-gray-200);
-      @media (prefers-color-scheme: dark) {
-        background-color: var(--color-gray-700);
-      }
+      padding-inline: calc(var(--spacing) * 1);
+    }
+    .dark .level-box-x {
+      background-color: var(--color-gray-700);
     }
     .level-box-y {
       position: relative;
@@ -714,26 +701,26 @@
       width: calc(var(--spacing) * 10);
       justify-content: center;
       border-radius: var(--radius-lg);
-      padding-block: calc(var(--spacing) * 1);
       background-color: var(--color-gray-200);
-      @media (prefers-color-scheme: dark) {
-        background-color: var(--color-gray-700);
-      }
+      padding-block: calc(var(--spacing) * 1);
+    }
+    .dark .level-box-y {
+      background-color: var(--color-gray-700);
     }
     .wall-level-box {
       position: relative;
+      display: flex;
       height: 60px;
       width: 90%;
       max-width: 400px;
       align-items: center;
-      border-radius: var(--radius-lg);
-      padding-inline: 6px;
-      display: flex;
       justify-content: center;
+      border-radius: var(--radius-lg);
       background-color: var(--color-gray-200);
-      @media (prefers-color-scheme: dark) {
-        background-color: var(--color-gray-700);
-      }
+      padding-inline: 6px;
+    }
+    .dark .wall-level-box {
+      background-color: var(--color-gray-700);
     }
     .degree-display-wrapper {
       position: relative;
@@ -750,6 +737,10 @@
     }
     .dark .degree-display-wrapper {
       background: linear-gradient(to top right, transparent 49.5%, oklch(44.6% 0.03 256.802) 49.5%, oklch(44.6% 0.03 256.802) 50.5%, transparent 50.5%);
+    }
+    .control-button svg {
+      fill: currentColor !important;
+      stroke: currentColor !important;
     }
   }
   #degree-y {
@@ -783,8 +774,12 @@
   border-radius: calc(infinity * 1px);
   border-style: var(--tw-border-style);
   border-width: 1px;
-  background-color: var(--color-amber-300);
+  background-color: var(--color-amber-600);
   padding: calc(var(--spacing) * 3);
+  color: var(--color-white);
+}
+.dark #zero-btn {
+  background-color: var(--color-amber-300);
   color: var(--color-black);
 }
 .measure-btn {
@@ -792,8 +787,12 @@
   border-radius: calc(infinity * 1px);
   border-style: var(--tw-border-style);
   border-width: 1px;
-  background-color: var(--color-blue-300);
+  background-color: var(--color-blue-600);
   padding: calc(var(--spacing) * 3);
+  color: var(--color-white);
+}
+.dark .measure-btn {
+  background-color: var(--color-blue-300);
   color: var(--color-black);
 }
 .language-dropdown {
@@ -850,14 +849,26 @@
   border-radius: var(--radius-lg);
   border-style: var(--tw-border-style);
   border-width: 1px;
+  border-color: var(--color-slate-300);
+  background-color: color-mix(in srgb, oklch(92.9% 0.013 255.508) 50%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-slate-200) 50%, transparent);
+  }
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-slate-300);
+    }
+  }
+}
+.dark .faq-item {
   border-color: var(--color-slate-700);
   background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 50%, transparent);
   @supports (color: color-mix(in lab, red, red)) {
     background-color: color-mix(in oklab, var(--color-slate-800) 50%, transparent);
   }
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-slate-800);
@@ -877,7 +888,7 @@
   line-height: var(--tw-leading, var(--text-base--line-height));
   --tw-font-weight: var(--font-weight-medium);
   font-weight: var(--font-weight-medium);
-  color: var(--color-white);
+  color: var(--color-black);
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
@@ -890,6 +901,9 @@
     }
   }
 }
+.dark .faq-question {
+  color: var(--color-white);
+}
 .faq-question span {
   flex: 1;
 }
@@ -898,7 +912,7 @@
   height: calc(var(--spacing) * 5);
   width: calc(var(--spacing) * 5);
   flex-shrink: 0;
-  color: var(--color-cyan-400);
+  color: var(--color-cyan-600);
   transition-property: transform, translate, scale, rotate;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
@@ -906,6 +920,9 @@
   transition-duration: 300ms;
   --tw-ease: var(--ease-in-out);
   transition-timing-function: var(--ease-in-out);
+}
+.dark .faq-icon {
+  color: var(--color-cyan-400);
 }
 .faq-item.active .faq-icon {
   rotate: 180deg;
