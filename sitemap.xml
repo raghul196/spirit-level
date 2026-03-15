@@ -3,137 +3,68 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://spiritlevel.online/</loc>
-    <xhtml:link
-               rel="alternate"
-               hreflang="de"
-               href="https://spiritlevel.online/de/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="en"
-               href="https://spiritlevel.online/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="it"
-               href="https://spiritlevel.online/it/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="fr"
-               href="https://spiritlevel.online/fr/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="pt"
-               href="https://spiritlevel.online/pt/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="x-default"
-               href="https://spiritlevel.online/"/>
+    <lastmod>2026-03-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://spiritlevel.online/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://spiritlevel.online/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://spiritlevel.online/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://spiritlevel.online/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://spiritlevel.online/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt"        href="https://spiritlevel.online/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spiritlevel.online/"/>
   </url>
   <url>
     <loc>https://spiritlevel.online/de/</loc>
-    <xhtml:link
-               rel="alternate"
-               hreflang="de"
-               href="https://spiritlevel.online/de/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="en"
-               href="https://spiritlevel.online/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="it"
-               href="https://spiritlevel.online/it/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="fr"
-               href="https://spiritlevel.online/fr/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="pt"
-               href="https://spiritlevel.online/pt/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="x-default"
-               href="https://spiritlevel.online/"/>
+    <lastmod>2026-03-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://spiritlevel.online/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://spiritlevel.online/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://spiritlevel.online/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://spiritlevel.online/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://spiritlevel.online/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt"        href="https://spiritlevel.online/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spiritlevel.online/"/>
+  </url>
+  <url>
+    <loc>https://spiritlevel.online/es/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://spiritlevel.online/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://spiritlevel.online/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://spiritlevel.online/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://spiritlevel.online/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://spiritlevel.online/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt"        href="https://spiritlevel.online/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spiritlevel.online/"/>
   </url>
   <url>
     <loc>https://spiritlevel.online/it/</loc>
-    <xhtml:link
-               rel="alternate"
-               hreflang="de"
-               href="https://spiritlevel.online/de/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="en"
-               href="https://spiritlevel.online/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="it"
-               href="https://spiritlevel.online/it/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="fr"
-               href="https://spiritlevel.online/fr/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="pt"
-               href="https://spiritlevel.online/pt/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="x-default"
-               href="https://spiritlevel.online/"/>
+    <lastmod>2026-03-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://spiritlevel.online/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://spiritlevel.online/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://spiritlevel.online/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://spiritlevel.online/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://spiritlevel.online/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt"        href="https://spiritlevel.online/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spiritlevel.online/"/>
   </url>
   <url>
     <loc>https://spiritlevel.online/fr/</loc>
-    <xhtml:link
-               rel="alternate"
-               hreflang="de"
-               href="https://spiritlevel.online/de/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="en"
-               href="https://spiritlevel.online/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="it"
-               href="https://spiritlevel.online/it/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="fr"
-               href="https://spiritlevel.online/fr/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="pt"
-               href="https://spiritlevel.online/pt/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="x-default"
-               href="https://spiritlevel.online/"/>
+    <lastmod>2026-03-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://spiritlevel.online/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://spiritlevel.online/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://spiritlevel.online/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://spiritlevel.online/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://spiritlevel.online/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt"        href="https://spiritlevel.online/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spiritlevel.online/"/>
   </url>
   <url>
     <loc>https://spiritlevel.online/pt/</loc>
-    <xhtml:link
-               rel="alternate"
-               hreflang="de"
-               href="https://spiritlevel.online/de/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="en"
-               href="https://spiritlevel.online/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="it"
-               href="https://spiritlevel.online/it/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="fr"
-               href="https://spiritlevel.online/fr/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="pt"
-               href="https://spiritlevel.online/pt/"/>
-    <xhtml:link
-               rel="alternate"
-               hreflang="x-default"
-               href="https://spiritlevel.online/"/>
+    <lastmod>2026-03-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://spiritlevel.online/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://spiritlevel.online/de/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://spiritlevel.online/es/"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://spiritlevel.online/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://spiritlevel.online/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt"        href="https://spiritlevel.online/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spiritlevel.online/"/>
   </url>
 </urlset>
