@@ -67,4 +67,46 @@
     <xhtml:link rel="alternate" hreflang="pt"        href="https://spiritlevel.online/pt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://spiritlevel.online/"/>
   </url>
+  <url>
+    <loc>https://spiritlevel.online/about.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spiritlevel.online/contact.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spiritlevel.online/blog/</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://spiritlevel.online/blog/how-to-hang-a-picture-frame-straight.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spiritlevel.online/blog/how-to-level-a-tv-on-the-wall.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spiritlevel.online/blog/how-to-level-a-pool-table.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://spiritlevel.online/blog/how-to-use-your-phone-as-a-spirit-level.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

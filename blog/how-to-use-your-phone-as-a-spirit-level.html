@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Your Phone as a Spirit Level</title>
+    <meta name="description" content="Your phone has a built-in accelerometer that works just like a spirit level. Learn how it works, Surface Mode vs Wall Mode, how to calibrate, and what accuracy to expect.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://spiritlevel.online/blog/how-to-use-your-phone-as-a-spirit-level.html">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #222;
+            background: #fff;
+        }
+        header {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 16px 24px;
+        }
+        header a { color: #555; text-decoration: none; font-size: 14px; }
+        header a:hover { color: #000; }
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+        h2 { font-size: 20px; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
+        p { margin-bottom: 16px; color: #333; }
+        ol, ul { margin: 0 0 24px 24px; color: #333; }
+        li { margin-bottom: 10px; }
+        li strong { color: #111; }
+        a { color: #1a73e8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .tip {
+            background: #f0f7ff;
+            border-left: 4px solid #1a73e8;
+            padding: 14px 18px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+            color: #333;
+        }
+        .note {
+            background: #f6f6f6;
+            border-left: 4px solid #aaa;
+            padding: 14px 18px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+            color: #333;
+        }
+        .svg-container {
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .svg-label {
+            color: #9ca3af;
+            font-size: 13px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .divider { border: none; border-top: 1px solid #e5e5e5; margin: 40px 0 0; }
+        footer { text-align: center; font-size: 13px; color: #aaa; padding: 24px; }
+        footer a { color: #aaa; }
+        footer a:hover { color: #555; }
+        .breadcrumb { font-size: 13px; color: #888; margin-bottom: 24px; }
+        .breadcrumb a { color: #888; text-decoration: none; }
+        .breadcrumb a:hover { color: #1a73e8; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/">← Back to Spirit Level</a>
+    </header>
+
+    <div class="container">
+
+        <p class="breadcrumb"><a href="/blog/">Blog</a> › How to Use Your Phone as a Spirit Level</p>
+
+        <h1>How to Use Your Phone as a Spirit Level</h1>
+
+        <p>Every modern smartphone contains an accelerometer — a tiny sensor that measures gravitational acceleration along multiple axes. This is the same physical principle that makes a traditional spirit level work: gravity always pulls straight down, so measuring the angle between your device and that pull tells you exactly how far off horizontal or vertical you are.</p>
+
+        <p>You don't need a separate app. <a href="/">Spirit Level Online</a> runs directly in your phone's browser — just open the page and you have a precision bubble level in your hand.</p>
+
+        <h2>How the accelerometer works</h2>
+
+        <p>Your phone's accelerometer reports its orientation as three numbers: the tilt from front to back (pitch), the tilt from side to side (roll), and the force in the up-down direction. When the phone is perfectly flat on a horizontal surface, pitch and roll are both 0°. When the phone is perfectly vertical and level, the relevant axis reads 0°. Spirit Level Online reads these values many times per second and displays them as a moving bubble — just like the liquid-filled vial in a traditional spirit level.</p>
+
+        <h2>Surface Mode vs Wall Mode</h2>
+
+        <p>Spirit Level Online has two modes, each designed for a different task:</p>
+
+        <ul>
+            <li><strong>Surface Mode</strong> — Place your phone flat on a horizontal surface (a shelf, a table, a floor). The circular dial shows tilt in all directions simultaneously. Both the horizontal and vertical readings need to reach 0.0° for a surface to be truly level.</li>
+            <li><strong>Wall Mode</strong> — Hold your phone upright against a vertical surface (a wall, a door frame, the edge of a picture frame or TV). It measures the single axis that matters for vertical alignment and shows whether you're tilted left or right of true vertical.</li>
+        </ul>
+
+        <div class="svg-container">
+            <svg id="svg-surface-comp" width="270" height="450" viewBox="0 0 140 510" xmlns="http://www.w3.org/2000/svg" aria-label="Diagram of Surface Mode showing a circular dial with a centred bubble indicating a level surface.">
+                <title>Surface Mode — checking a horizontal surface</title>
+                <g transform="translate(-65,0)">
+                    <rect x="5" y="5" width="270" height="510" rx="25" fill="#1f2937"/>
+                    <rect x="15" y="15" width="250" height="490" rx="15" fill="#0f172a"/>
+                    <rect x="15" y="15" width="250" height="50" rx="15" ry="15" fill="#111827"/>
+                    <circle cx="40" cy="40" r="10" fill="#55ff55" opacity="0.5"/>
+                    <rect x="55" y="37" width="60" height="6" fill="#4b5563" rx="3"/>
+                    <rect x="230" y="32" width="16" height="16" fill="#4b5563" rx="8"/>
+                    <rect x="205" y="32" width="16" height="16" fill="#4b5563" rx="8"/>
+                    <rect x="180" y="32" width="16" height="16" fill="#4b5563" rx="8"/>
+                    <g transform="translate(25, 80)">
+                        <rect x="35" y="0" width="160" height="30" rx="15" fill="#374151"/>
+                        <rect x="37" y="2" width="78" height="26" rx="13" fill="#d1d5db"/>
+                        <text x="76" y="20" font-size="12" fill="#1f2937" text-anchor="middle">Surface</text>
+                        <text x="154" y="20" font-size="12" fill="#d1d5db" text-anchor="middle">Wall</text>
+                        <g transform="translate(115, 170)">
+                            <circle cx="0" cy="0" r="80" fill="#374151" stroke="#6b7280" stroke-width="2"/>
+                            <text x="0" y="-85" style="fill:#f7f455" font-size="8" text-anchor="middle">Circular Dial</text>
+                            <line x1="-80" y1="0" x2="80" y2="0" stroke="#6b7280" stroke-width="1"/>
+                            <line x1="0" y1="-80" x2="0" y2="80" stroke="#6b7280" stroke-width="1"/>
+                            <circle cx="0" cy="0" r="15" stroke="#6b7280" stroke-width="1" fill="none"/>
+                            <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.8" stroke="#a7f3d0" stroke-width="1.5"/>
+                            <text x="0" y="25" style="fill:#f7f455" font-size="8" text-anchor="middle">Bubble centred = level</text>
+                            <rect x="-80" y="88" width="160" height="25" rx="5" fill="#374151"/>
+                            <circle cx="0" cy="100.5" r="11" fill="#38bdf8" opacity="0.8"/>
+                            <line x1="-80" y1="100.5" x2="80" y2="100.5" stroke="#6b7280" stroke-width="0.5" stroke-dasharray="2 2"/>
+                            <rect x="88" y="-80" width="25" height="160" rx="5" fill="#374151"/>
+                            <circle cx="100.5" cy="0" r="11" fill="#38bdf8" opacity="0.8"/>
+                            <line x1="100.5" y1="-80" x2="100.5" y2="80" stroke="#6b7280" stroke-width="0.5" stroke-dasharray="2 2"/>
+                            <path d="M 92 88 L 117 88 L 117 113 Z" fill="#0f172a"/>
+                            <line x1="92" y1="88" x2="117" y2="113" stroke="#6b7280"/>
+                            <text x="114" y="98" font-size="9" fill="#e5e7eb" text-anchor="end">0.0°</text>
+                            <text x="95" y="110" font-size="9" fill="#e5e7eb" text-anchor="start">0.0°</text>
+                        </g>
+                        <g transform="translate(0, 360)">
+                            <rect x="15" y="0" width="90" height="30" rx="15" fill="#f59e0b"/>
+                            <text x="60" y="20" fill="#1f2937" font-size="12" text-anchor="middle">Zero</text>
+                            <rect x="125" y="0" width="90" height="30" rx="15" fill="#60a5fa"/>
+                            <text x="170" y="20" fill="#1f2937" font-size="12" text-anchor="middle">Stop</text>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <p class="svg-label">Surface Mode — bubble centred means the surface is level</p>
+        </div>
+
+        <div class="svg-container">
+            <svg id="svg-wall-comp" width="320" height="200" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" aria-label="Diagram of Wall Mode showing a centred bubble at 0.0 degrees for checking a vertical surface.">
+                <title>Wall Mode — checking a vertical surface</title>
+                <rect x="5" y="5" width="510" height="270" rx="25" fill="#1f2937"/>
+                <rect x="15" y="15" width="490" height="250" rx="15" fill="#0f172a"/>
+                <g transform="translate(15, 15)">
+                    <rect x="0" y="0" width="490" height="50" rx="15" fill="#111827"/>
+                    <circle cx="25" cy="25" r="10" fill="#55ff55" opacity="0.5"/>
+                    <rect x="45" y="22" width="100" height="6" fill="#4b5563" rx="3"/>
+                    <rect x="460" y="17" width="16" height="16" fill="#4b5563" rx="8"/>
+                    <rect x="435" y="17" width="16" height="16" fill="#4b5563" rx="8"/>
+                    <rect x="410" y="17" width="16" height="16" fill="#4b5563" rx="8"/>
+                </g>
+                <g transform="translate(15, 80)">
+                    <g transform="translate(165, -20)">
+                        <rect x="0" y="0" width="160" height="30" rx="15" fill="#374151"/>
+                        <rect x="80" y="2" width="78" height="26" rx="13" fill="#d1d5db"/>
+                        <text x="40" y="20" font-size="12" fill="#d1d5db" text-anchor="middle" font-family="sans-serif">Surface</text>
+                        <text x="119" y="20" font-size="12" fill="#1f2937" text-anchor="middle" font-family="sans-serif">Wall</text>
+                    </g>
+                    <g transform="translate(45, 40)">
+                        <rect x="0" y="0" width="400" height="40" rx="10" fill="#374151"/>
+                        <text x="350" y="60" font-size="16" style="fill:#f7f455" text-anchor="middle" font-family="sans-serif">Spirit Level</text>
+                        <circle cx="200" cy="20" r="18" fill="#38bdf8" opacity="0.8" stroke="#a7f3d0" stroke-width="1.5"/>
+                        <line x1="180" y1="0" x2="180" y2="40" stroke="#6b7280" stroke-width="1"/>
+                        <line x1="220" y1="0" x2="220" y2="40" stroke="#6b7280" stroke-width="1"/>
+                        <text x="120" y="25" font-size="16" style="fill:#f7f455" text-anchor="middle" font-family="sans-serif">Bubble</text>
+                        <text x="200" y="75" font-size="24" fill="#e5e7eb" text-anchor="middle" font-family="monospace" font-weight="bold">0.0°</text>
+                    </g>
+                    <g transform="translate(145, 135)">
+                        <rect x="0" y="0" width="95" height="35" rx="17.5" fill="#f59e0b"/>
+                        <text x="47.5" y="22" fill="#1f2937" font-size="14" text-anchor="middle" font-family="sans-serif">Zero</text>
+                        <rect x="105" y="0" width="95" height="35" rx="17.5" fill="#60a5fa"/>
+                        <text x="152.5" y="22" fill="#1f2937" font-size="14" text-anchor="middle" font-family="sans-serif">Start</text>
+                    </g>
+                </g>
+            </svg>
+            <p class="svg-label">Wall Mode — bubble centred means the vertical surface or frame is straight</p>
+        </div>
+
+        <h2>How to calibrate for a camera bump</h2>
+
+        <p>Most modern phones have a raised camera module on the back. When you lay the phone flat on a surface, the camera bump lifts one corner and introduces a small measurement error. To compensate:</p>
+
+        <ol>
+            <li>Lay the phone on the surface you want to measure.</li>
+            <li>Let the readings stabilise for a second or two.</li>
+            <li>Press the <strong>Zero</strong> button. This tells the app to treat the current position as the reference point, cancelling out the camera bump offset.</li>
+            <li>Now move the phone to other positions on the same surface — the readings will be accurate relative to that zeroed reference.</li>
+        </ol>
+
+        <div class="tip">
+            <strong>Tip:</strong> Re-zero each time you switch surfaces. The Zero calibration applies to the current orientation and surface only. If you move to a different surface or flip the phone, zero it again.
+        </div>
+
+        <h2>What accuracy can you expect?</h2>
+
+        <p>Modern smartphone accelerometers are excellent — typically accurate to within 0.5° or better for most phones made in the last five years. This is more than sufficient for DIY tasks like hanging shelves, mounting TVs, checking furniture, or leveling a pool table. For tasks that require sub-0.1° precision (precision engineering, optical equipment, scientific instruments), a dedicated calibrated level is still the right tool.</p>
+
+        <div class="note">
+            <strong>Note:</strong> Accuracy varies by device. Flagship phones tend to have higher-quality accelerometers than budget models. If you need the best possible reading from your specific phone, use the 180° rotation calibration method: place the phone, note the reading, rotate it 180°, and note the new reading. The true level is exactly halfway between the two. This cancels out any systematic offset in the sensor itself.
+        </div>
+
+        <h2>Common tasks you can do with your phone as a spirit level</h2>
+
+        <ul>
+            <li>Hanging picture frames straight on a wall</li>
+            <li>Leveling a TV wall mount before drilling</li>
+            <li>Checking shelves are horizontal before fixing them permanently</li>
+            <li>Leveling a pool or billiard table</li>
+            <li>Checking appliances like washing machines and refrigerators are stable</li>
+            <li>Verifying a door frame or window frame is plumb during installation</li>
+            <li>Checking furniture legs on uneven floors</li>
+        </ul>
+
+        <p>Open <a href="/">Spirit Level Online</a> in your browser — it works on any modern smartphone or tablet, requires no download, and is completely free.</p>
+
+        <hr class="divider">
+
+    </div>
+
+    <footer>
+        © 2026 spiritlevel.online —
+        <a href="/">App</a> ·
+        <a href="/about.html">About</a> ·
+        <a href="/contact.html">Contact</a> ·
+        <a href="/blog/">Blog</a> ·
+        <a href="/privacy.html">Privacy</a>
+    </footer>
+
+</body>
+</html>
