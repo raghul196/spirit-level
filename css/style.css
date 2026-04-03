@@ -533,6 +533,34 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .site-nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing) * 4);
+    justify-content: center;
+    padding-block: calc(var(--spacing) * 3);
+    padding-inline: calc(var(--spacing) * 4);
+    border-top: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid var(--color-gray-200);
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .dark .site-nav-bar {
+    border-color: var(--color-gray-700);
+  }
+  .site-nav-bar a {
+    color: var(--color-gray-500);
+    text-decoration: none;
+  }
+  .site-nav-bar a:hover {
+    color: var(--color-gray-800);
+  }
+  .dark .site-nav-bar a {
+    color: var(--color-gray-400);
+  }
+  .dark .site-nav-bar a:hover {
+    color: var(--color-gray-200);
+  }
   .app-footer {
     padding-block: calc(var(--spacing) * 4);
     text-align: center;
