@@ -61,3 +61,23 @@ privacy : no collection of data except goatcounter, where how many are visiting 
 4. SEO
 - Add meta description, title , schema.org, faq
 - optimize for keywords spiritl level online, online spirit level, online bubble level, bubble level online, level surface online, surface level online, how to find if my surface is straight. how to find if my photo is straight, how to find if my tv is straight.
+
+5. Blog
+Goal: reach AdSense approval threshold (10-15+ content pages). Quality is already good — need quantity.
+Each blog follows the same structure as existing posts: intro, what you need, step-by-step, tips, internal link to tool, footer.
+
+## Existing blogs
+- how-to-hang-a-picture-frame-straight.html ✅
+- how-to-level-a-pool-table.html ✅
+- how-to-level-a-tv-on-the-wall.html ✅
+- how-to-use-your-phone-as-a-spirit-level.html ✅
+
+## Planned blogs (in order)
+1. how-to-check-if-a-shelf-is-level.html ✅
+2. how-to-install-a-door-frame-straight.html ✅
+3. how-to-level-a-washing-machine.html ✅
+4. how-to-level-a-refrigerator.html ✅
+5. how-to-check-if-a-floor-is-level.html ✅
+6. how-to-hang-curtain-rods-straight.html ✅
+7. how-to-level-a-garden-shed.html ✅
+8. how-to-check-if-a-countertop-is-level.html ✅
