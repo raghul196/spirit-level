@@ -68,6 +68,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://spiritlevel.online/"/>
   </url>
   <url>
+    <loc>https://spiritlevel.online/id/</loc>
+  </url>
+  <url>
+    <loc>https://spiritlevel.online/ru/</loc>
+  </url>
+  <url>
     <loc>https://spiritlevel.online/about.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
