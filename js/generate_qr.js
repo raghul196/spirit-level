@@ -7,6 +7,8 @@ const languages = {
   de: 'https://spiritlevel.online/de/',
   fr: 'https://spiritlevel.online/fr/',
   pt: 'https://spiritlevel.online/pt/',
+  id: 'https://spiritlevel.online/id/',
+  ru: 'https://spiritlevel.online/ru/',
 };
 
 
