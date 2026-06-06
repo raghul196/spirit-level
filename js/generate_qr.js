@@ -9,6 +9,9 @@ const languages = {
   pt: 'https://spiritlevel.online/pt/',
   id: 'https://spiritlevel.online/id/',
   ru: 'https://spiritlevel.online/ru/',
+  ja: 'https://spiritlevel.online/ja/',
+  pl: 'https://spiritlevel.online/pl/',
+  tr: 'https://spiritlevel.online/tr/',
 };
 
 
