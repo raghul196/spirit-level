@@ -7,6 +7,28 @@
     <meta name="description" content="About Spirit Level Online — a free browser-based bubble level built by a solo developer for anyone who needs a quick level check without downloading an app.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://spiritlevel.online/about.html">
+    <link rel="icon" type="image/png" href="/logo_48.png">
+    <link rel="apple-touch-icon" href="/logo_144.png">
+    <meta property="og:title" content="About - Spirit Level Online">
+    <meta property="og:description" content="About Spirit Level Online — a free browser-based bubble level built by a solo developer for anyone who needs a quick level check without downloading an app.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://spiritlevel.online/about.html">
+    <meta property="og:image" content="https://spiritlevel.online/logo_144.png">
+    <meta property="og:site_name" content="Spirit Level Online">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "url": "https://spiritlevel.online/about.html",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Raghul Babu",
+        "url": "https://raghulbabu.com",
+        "jobTitle": "Software Developer"
+      }
+    }
+    </script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -61,19 +83,43 @@
         }
         footer a { color: #aaa; }
         footer a:hover { color: #555; }
+        /* Site chrome */
+        header.site-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px 20px; padding: 12px 24px; border-bottom: 1px solid #e5e5e5; }
+        .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: #111; text-decoration: none; }
+        .brand:hover { color: #111; text-decoration: none; }
+        .brand img { border-radius: 6px; }
+        .site-header nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+        .site-header nav a { color: #555; font-size: 14px; }
+        .site-header nav a:hover { color: #000; }
+        h1 { line-height: 1.2; }
+        .container { padding-bottom: 56px; }
+        .divider { display: none; }
+        footer.site-footer { background: #f7f7f7; border-top: 1px solid #e5e5e5; padding: 32px 24px 28px; text-align: left; font-size: 14px; color: #555; }
+        .footer-inner { max-width: 760px; margin: 0 auto; }
+        footer.site-footer p { color: #666; margin: 10px 0 0; }
+        footer.site-footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; }
+        footer.site-footer nav a { color: #444; }
+        footer.site-footer .copy { font-size: 13px; color: #888; margin-top: 16px; }
+        footer.site-footer .copy a { color: #666; }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="/">← Back to Spirit Level</a>
+    <header class="site-header">
+        <a class="brand" href="/"><img src="/logo_48.png" alt="" width="28" height="28">Spirit Level Online</a>
+        <nav aria-label="Site">
+            <a href="/">Open the level</a>
+            <a href="/blog/">Guides</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
     </header>
 
     <div class="container">
 
         <h1>About Spirit Level Online</h1>
 
-        <p>I built this tool for myself. I was hanging a shelf one evening and realised I'd left my physical spirit level at a friend's place. I grabbed my phone, searched for an online alternative, and found nothing that just worked — everything either wanted me to download an app or was buried behind ads and sign-up flows.</p>
+        <p>Hi, I'm <a href="https://raghulbabu.com" target="_blank" rel="noopener">Raghul Babu</a>, the developer behind this site. I built this tool for myself. I was hanging a shelf one evening and realised I'd left my physical spirit level at a friend's place. I grabbed my phone, searched for an online alternative, and found nothing that just worked — everything either wanted me to download an app or was buried behind ads and sign-up flows.</p>
 
         <p>So I built one. Spirit Level Online is a free, browser-based bubble level that runs entirely on your phone's built-in sensors. No app needed, no account, no nonsense. Open the page, grant sensor access, and you're levelling.</p>
 
@@ -81,15 +127,17 @@
 
         <p>The tool uses your device's accelerometer to measure tilt in real time and shows it as a traditional bubble level on screen. There are two modes: Surface Mode for flat surfaces like shelves and tables, and Wall Mode for vertical checks like picture frames and TV mounts. It works on any modern smartphone or tablet — iOS and Android.</p>
 
-        <p>I've also added audio feedback (a beep that quickens as the bubble approaches centre), a Zero button to calibrate against camera bumps, and dark mode for working in dim spaces. It's available in English, Spanish, German, Italian, French, and Portuguese.</p>
+        <p>I've also added audio feedback (a beep that quickens as the bubble approaches centre), a Zero button to calibrate against camera bumps, and dark mode for working in dim spaces. The tool is available in 11 languages: English, Spanish, German, French, Italian, Portuguese, Polish, Turkish, Russian, Indonesian, and Japanese.</p>
 
         <h2>Who made this</h2>
 
-        <p>I'm a solo developer. I also built <a href="https://online-inclinometer.com" target="_blank" rel="noopener">Online Inclinometer</a> for measuring slopes and <a href="https://whatismyaltitude.com" target="_blank" rel="noopener">What Is My Altitude</a> for checking elevation — both the same idea: useful tools that work instantly in your browser.</p>
+        <p>I'm a solo developer — you can see more of my work at <a href="https://raghulbabu.com" target="_blank" rel="noopener">raghulbabu.com</a>. I also built <a href="https://online-inclinometer.com" target="_blank" rel="noopener">Online Inclinometer</a> for measuring slopes and <a href="https://whatismyaltitude.com" target="_blank" rel="noopener">What Is My Altitude</a> for checking elevation — both the same idea: useful tools that work instantly in your browser.</p>
+
+        <p>I also write the <a href="/blog/">guides on this site</a>, covering everyday levelling jobs like mounting a TV, levelling a washing machine, or hanging curtain rods.</p>
 
         <h2>Privacy</h2>
 
-        <p>Your sensor data never leaves your device. All measurements happen locally in your browser — nothing is transmitted to any server. I use <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a> to count anonymous page visits (no cookies, no personal data). The site also shows Google AdSense ads, which may use cookies for personalisation — see the <a href="/privacy.html">Privacy Policy</a> for details.</p>
+        <p>Your sensor data never leaves your device. All measurements happen locally in your browser — nothing is transmitted to any server. I use <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a> to count anonymous page visits (no cookies, no personal data). To keep the tool free, the site may display ads served by Google AdSense, which can use cookies — see the <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Use</a> for details.</p>
 
         <p>Questions or bug reports? <a href="/contact.html">Get in touch.</a></p>
 
@@ -97,13 +145,20 @@
 
     </div>
 
-    <footer>
-        © 2026 spiritlevel.online —
-        <a href="/">App</a> ·
-        <a href="/about.html">About</a> ·
-        <a href="/contact.html">Contact</a> ·
-        <a href="/blog/">Blog</a> ·
-        <a href="/privacy.html">Privacy</a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a class="brand" href="/"><img src="/logo_48.png" alt="" width="24" height="24">Spirit Level Online</a>
+            <p>A free bubble level that runs in your phone's browser. No app, no sign-up.</p>
+            <nav aria-label="Footer">
+                <a href="/">Level</a>
+                <a href="/blog/">Guides</a>
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+            </nav>
+            <p class="copy">© 2026 spiritlevel.online · Built by <a href="https://raghulbabu.com" target="_blank" rel="noopener">Raghul Babu</a></p>
+        </div>
     </footer>
 
 </body>
